@@ -22,7 +22,7 @@
     <head>
         <!-- Web -->
         <meta charset="UTF-8">
-        <link rel="icon" href="" type="image/png">
+        @yield('logo_title')
         <title>@yield('title')</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -35,7 +35,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
-                    <img src="img/broggimain.png" width="30" height="30">
+                    <img src="img/broggimain.png" class="ms-2" width="180" height="60">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
