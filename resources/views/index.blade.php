@@ -8,18 +8,22 @@
     IES Broggi
 @endsection
 
+@section('css')
+<link href="css/index.css" rel="stylesheet">
+@endsection
+
 @section('main')
-<div class="container w-50" style="height: 200px;">
+<div class="container-fluid w-50" style="height: 200px;">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="img/ambulancia.jpg" class="d-block">
+            <img src="img/ambulancia.jpg" class="d-block img-fluid">
             </div>
             <div class="carousel-item">
-            <img src="img/agente.jpg" height="" class="d-block">
+            <img src="img/agente.jpg" height="" class="d-block img-fluid">
             </div>
             <div class="carousel-item">
-            <img src="img/ambulancia.jpg" class="d-block ">
+            <img src="img/ambulancia.jpg" class="d-block img-fluid">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
