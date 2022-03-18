@@ -33,30 +33,60 @@
     <body class="h-100">
         <header>
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <!-- Logo -->
-                <a class="navbar-brand" href="#">
-                    <img src="img/broggimain.png" class="ms-2" width="180" height="60">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <!-- Home -->
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <!-- Series -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Carta de Trucada</a>
-                        </li>
-                        <!-- About -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="img/broggimain.png" class="ms-2" width="180" height="60">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <!-- Video -->
+                            <li class="nav-item p-2">
+                                <a class="nav-link" aria-current="page" href="#">
+                                    <img src="img/iconos/info_day.png" width="30px">
+                                </a>
+                            </li>
+                            <!-- Preguntas -->
+                            <li class="nav-item p-2">
+                                <a class="nav-link" href="#">
+                                    <img src="img/iconos/help_day.png" width="30px">
+                                </a>
+                            </li>
+                            <!-- Idioma -->
+                            <li class="nav-item dropdown p-2">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="img/iconos/lan_day.png" width="30px">
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="img/iconos/spanish.png" width="30px"> Español
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="img/iconos/catalonian.svg" width="30px"> Catalán
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <img src="img/iconos/english.png" width="30px"> Inglés
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- Login -->
+                            <li class="nav-item p-2">
+                                <a class="nav-link" href="#">
+                                    <img src="img/iconos/user_day.png" width="30px">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </header>
