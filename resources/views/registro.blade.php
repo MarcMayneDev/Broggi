@@ -29,7 +29,7 @@
                         </div>
                         <div class="registro mb-4 d-flex bd-highlight">
                             <div class="p-2 flex-fill bd-highlight align-self-center">
-                                ¿Tienes cuenta? <a href="#" class="text-warning change_link">Inicia sesión</a>
+                                ¿Tienes cuenta? <a href="login" class="text-warning change_link">Inicia sesión</a>
                             </div>
                             <div class="p-2 flex-fill bd-highlight d-grid col-4">
                                 <button type="submit" class="btn btn-primary">Crear cuenta</button>

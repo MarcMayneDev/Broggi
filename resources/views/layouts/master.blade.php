@@ -36,7 +36,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <!-- Logo -->
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index">
                         <img src="img/broggimain.png" class="ms-2" width="180" height="60">
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,27 +63,43 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <img src="img/iconos/spanish.png" width="30px"> Español
-                                        </a>
+                                        <form action="#" method="post">
+                                            <input type="hidden" name="lang" value="es" />
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/spanish.png" width="30px"> Español</button>
+                                        </form>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <img src="img/iconos/catalonian.svg" width="30px"> Catalán
-                                        </a>
+                                        <form action="#" method="post">
+                                            <input type="hidden" name="lang" value="ca" />
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/catalonian.svg" width="30px"> Català</button>
+                                        </form>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
-                                            <img src="img/iconos/english.png" width="30px"> Inglés
-                                        </a>
+                                        <form action="#" method="post">
+                                            <input type="hidden" name="lang" value="en" />
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/english.png" width="30px"> English</button>
+                                        </form> 
                                     </li>
                                 </ul>
                             </li>
                             <!-- Login -->
-                            <li class="nav-item p-2">
-                                <a class="nav-link" href="#">
+                            <li class="nav-item dropdown p-2">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="img/iconos/user_day.png" width="30px">
                                 </a>
+                                <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
+                                    <li>
+                                        <a href="login" class="align-items-center" style="text-decoration: none;">
+                                            <strong>Iniciar sesión</strong>
+                                        </a>
+                                    </li>
+                                    <hr>
+                                    <li>
+                                        <a href="registro" class="text-center" style="text-decoration: none;">
+                                            Crear una cuenta
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
