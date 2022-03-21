@@ -25,7 +25,7 @@
                         </div>
                         <div class="registro mb-4 d-flex bd-highlight">
                             <div class="p-2 flex-fill bd-highlight align-self-center">
-                                ¿No tienes cuenta? <a href="#" class="text-warning change_link">Regístrate</a>
+                                ¿No tienes cuenta? <a href="registro" class="text-warning change_link">Regístrate</a>
                             </div>
                             <div class="p-2 flex-fill bd-highlight d-grid col-4">
                                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
