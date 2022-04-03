@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
+$users = User::all();
 class UserController extends Controller
 {
     /**
@@ -39,10 +40,10 @@ class UserController extends Controller
     {
 
         $user = new User();
-        $user->codi = $request->input(‘codi’);
-        $user->contrassenya = $request->input(‘contrassenya’);
-        $user->nom = $request->input(‘nom’);
-        $user->cognoms = $request->input(‘cognoms’);
+        $user->codi = $request->input('usuari');
+        $user->contrassenya = $request->input('contrassenya');
+        $user->nom = $request->input('nom');
+        $user->cognoms = $request->input('cognoms');
 
         try
         {
@@ -50,7 +51,7 @@ class UserController extends Controller
         } catch(QueryException $ex){
             // ToDo -> Crear controlador de mensajes
             // $message = ControladorMensajes::errorMessage($ex);
-            // $request->session()->flash(‘error’, $message);
+            // $request->session()->flash('error', $message);
         }
 
     }
@@ -86,10 +87,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->codi = $request->input(‘codi’);
-        $user->contrassenya = $request->input(‘contrassenya’);
-        $user->nom = $request->input(‘nom’);
-        $user->cognoms = $request->input(‘cognoms’);
+        $user->codi = $request->input('codi');
+        $user->contrassenya = $request->input('contrassenya');
+        $user->nom = $request->input('nom');
+        $user->cognoms = $request->input('cognoms');
 
         try
         {
@@ -97,7 +98,7 @@ class UserController extends Controller
         } catch(QueryException $ex){
             // ToDo -> Crear controlador de mensajes
             // $message = ControladorMensajes::errorMessage($ex);
-            // $request->session()->flash(‘error’, $message);
+            // $request->session()->flash('error', $message);
         }
     }
 
@@ -115,7 +116,7 @@ class UserController extends Controller
         } catch(QueryException $ex){
             // ToDo -> Crear controlador de mensajes
             // $message = ControladorMensajes::errorMessage($ex);
-            // $request->session()->flash(‘error’, $message);
+            // $request->session()->flash('error', $message);
         }
     }
 }
