@@ -15,4 +15,14 @@ class Incidents extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false; // updated_at && created_at
+
+    /**
+     * The roles that belong to the Incidents
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Cartes_trucades::class, 'cartes_trucades_id');
+    }
 }

@@ -39,7 +39,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col m-3 d-flex justify-content-center">
-                <img src="img/iconos/user_dark.png" width="200">
+                <img src="img/Marc.jpg" width="200">
             </div>
             <div class="col m-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est inventore error, maxime hic magnam qui corporis unde minus odit cupiditate sequi voluptates eius voluptatem quasi quae porro facere repudiandae. Vel?</div>
             <div class="col m-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est inventore error, maxime hic magnam qui corporis unde minus odit cupiditate sequi voluptates eius voluptatem quasi quae porro facere repudiandae. Vel?</div>

@@ -30,4 +30,14 @@ class Cartes_trucades extends Model
     {
         return $this->hasOne(Dades_personals::class, 'dades_personals_id');
     }
+
+    public function expedients()
+    {
+        return $this->hasOne(Expedients::class, 'expedients_id');
+    }
+
+    public function incidents()
+    {
+        return $this->hasOne(Incidents::class, 'incidents_id');
+    }
 }
