@@ -15,4 +15,9 @@ class Dades_personals extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false; // updated_at && created_at
+
+    public function CartesTrucades()
+    {
+        return $this->belongsToMany(Cartes_trucades::class, 'cartes_trucades_id');
+    }
 }

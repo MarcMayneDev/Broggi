@@ -20,4 +20,8 @@ class User extends Model
     {
         return $this->hasMany(Perfil::class, 'perfils_id');
     }
+
+    public function cartesTrucades(){
+        return $this->belongsToMany(Cartes_trucades::class, 'cartes_trucades_id');
+    }
 }

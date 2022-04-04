@@ -15,4 +15,19 @@ class Cartes_trucades extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false; // updated_at && created_at
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'user_id');
+    }
+
+    public function tipusLocalitzacions()
+    {
+        return $this->hasOne(Tipus_localitzacions::class, 'tipus_localitzacions_id');
+    }
+
+    public function dadesPersonals()
+    {
+        return $this->hasOne(Dades_personals::class, 'dades_personals_id');
+    }
 }
