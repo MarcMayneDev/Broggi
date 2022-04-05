@@ -47,10 +47,10 @@
                                 <td>{{ $user->cognoms; }}</td>
                                 <td>{{ $user->perfils_id; }}</td>
                                 <td>
-                                    {{-- <form action="editUserForm.php" method="POST">
-                                        <button type="submit" class="btn btn-outline-primary btn-sm"><i class="far fa-edit"></i></button>
-                                        <input type="hidden" name="id" value="{{  echo $user['id'] }}">
-                                    </form> --}}
+                                    <form action="{{ action([App\Http\Controllers\UserController::class, 'edit'], ['user' =>$user->id])}}" method="POST">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm">Editar</i></button>
+                                        <input type="hidden" name="id" value="{{$user->id }}">
+                                    </form>
                                 </td>
                                 <td>
                                     <form action="{{ action([App\Http\Controllers\UserController::class, 'destroy'], ['user' =>$user->id])}}"  method="POST">

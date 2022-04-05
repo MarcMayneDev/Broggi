@@ -50,3 +50,10 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
+
+
+Route::get('/admin/edit', [App\Http\Controllers\UserController::class, 'edit']);
+
+Route::post('/admin/edit', [App\Http\Controllers\UserController::class, 'edit']);
+
+Route::put('/admin/edit', [App\Http\Controllers\UserController::class, 'update']);
