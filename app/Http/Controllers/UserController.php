@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('adminCreate');
     }
 
     /**
@@ -43,9 +43,9 @@ class UserController extends Controller
 
         $user = new User();
         $user->usuari = $request->input('usuario');
+        $user->contrassenya = $request->input('contrasenya');
         $user->nom = $request->input('nombre');
         $user->cognoms = $request->input('apellidos');
-        $user->contrassenya = $request->input('contrasenya');
         $user->perfils_id = 1; //$request->input('usertype');
 
         try
@@ -90,10 +90,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->codi = $request->input('codi');
-        $user->contrassenya = $request->input('contrassenya');
-        $user->nom = $request->input('nom');
-        $user->cognoms = $request->input('cognoms');
+        $user->usuari = $request->input('usuario');
+        $user->contrassenya = $request->input('contrasenya');
+        $user->nom = $request->input('nombre');
+        $user->cognoms = $request->input('apellidos');
 
         try
         {
@@ -111,7 +111,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, User $user)
     {
         try
         {
@@ -121,5 +121,6 @@ class UserController extends Controller
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
+        return redirect()->action([UserController::class, 'index']);
     }
 }

@@ -53,9 +53,9 @@
                                     </form> --}}
                                 </td>
                                 <td>
-                                    <form action="{{ action([App\Http\Controllers\UserController::class, 'destroy'], ['id' =>$user->id])}}"  method="POST">
+                                    <form action="{{ action([App\Http\Controllers\UserController::class, 'destroy'], ['user' =>$user->id])}}"  method="POST">
                                         @csrf
-                                        @method('delete')
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Borrar</button>
                                     </form>
                                 </td>

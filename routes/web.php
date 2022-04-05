@@ -28,14 +28,16 @@ Route::get('/login', function () {
 
 Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
 
-Route::delete('/admin/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'destroy']);
 
 // Route::get('/admin', function () {
 //     return view('admin', ['cicles' => $cicles]);
 // })->name('admin');
 
+Route::get('/admin/create', [App\Http\Controllers\UserController::class, 'create']);
+
 Route::get('/registro', function () {
     return view('registro');
-})->name('registro');
+})->name('admin');
 
 Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);

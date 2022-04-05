@@ -22,22 +22,22 @@
                     <div class="card-body text-justify">
                         <label class="form-label mt-2" for="usuario">Usuario</label>
                         <div class="input-group mb-2">
-                            <input type="text" id="usuario" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" id="usuario" name="usuario" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             <span class="input-group-text"><img src="img/iconos/user_dark.png" width="15px"></span>
                         </div>
                         <label class="form-label mt-2">Nombre</label>
                         <div class="input-group mb-2">
-                            <input type="text" id="nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
+                            <input type="text" id="nombre" name="nombre" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" >
                             <span class="input-group-text"><img src="img/iconos/name_dark.png" width="15px"></span>
                         </div>
                         <label class="form-label mt-2">Apellidos</label>
                         <div class="input-group mb-2">
-                            <input type="text" id="apellidos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" id="apellidos" name="apellidos" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             <span class="input-group-text"><img src="img/iconos/name_dark.png" width="15px"></span>
                         </div>
                         <label class="form-label mt-2">Contraseña</label>
                         <div class="input-group mb-2">
-                            <input type="password" id="contrasenya" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input type="password" id="contrasenya" name="contrasenya" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                             <span class="input-group-text dark"><img src="img/iconos/passwd_dark.png" width="15px"></span>
                         </div>
                         <div class="registro mt-3 mb-3 d-flex bd-highlight">
