@@ -17,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+
+        return view('admin', ['users' => $users]);
     }
 
     /**
@@ -44,7 +46,7 @@ class UserController extends Controller
         $user->nom = $request->input('nombre');
         $user->cognoms = $request->input('apellidos');
         $user->contrassenya = $request->input('contrasenya');
-        //$user->perfils_id = $request->input('usertype');
+        $user->perfils_id = 1; //$request->input('usertype');
 
         try
         {

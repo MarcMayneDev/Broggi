@@ -25,6 +25,15 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+
+Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
+
+Route::delete('/admin/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+
+// Route::get('/admin', function () {
+//     return view('admin', ['cicles' => $cicles]);
+// })->name('admin');
+
 Route::get('/registro', function () {
     return view('registro');
 })->name('registro');

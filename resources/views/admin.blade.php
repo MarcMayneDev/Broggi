@@ -40,20 +40,20 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->getId(); }}</td>
-                                <td>{{ $user->getUsername(); }}</td>
-                                <td>{{ $user->getPassword(); }}</td>
-                                <td>{{ $user->getName(); }}</td>
-                                <td>{{ $user->getSurname(); }}</td>
-                                <td>{{ $user->getPerfilsId(); }}</td>
+                                <td>{{ $user->id; }}</td>
+                                <td>{{ $user->usuari; }}</td>
+                                <td>{{ $user->contrassenya; }}</td>
+                                <td>{{ $user->nom; }}</td>
+                                <td>{{ $user->cognoms; }}</td>
+                                <td>{{ $user->perfils_id; }}</td>
                                 <td>
-                                    <form action="editUserForm.php" method="POST">
+                                    {{-- <form action="editUserForm.php" method="POST">
                                         <button type="submit" class="btn btn-outline-primary btn-sm"><i class="far fa-edit"></i></button>
-                                        <input type="hidden" name="id" value="{{  echo $user['ID_Usuarios'] }}">
-                                    </form>
+                                        <input type="hidden" name="id" value="{{  echo $user['id'] }}">
+                                    </form> --}}
                                 </td>
                                 <td>
-                                    <form action="{{ action([App\Http\Controllers\User::class, 'destroy'], ['id' =>$user->getId()])}}"  method="POST">
+                                    <form action="{{ action([App\Http\Controllers\UserController::class, 'destroy'], ['id' =>$user->id])}}"  method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Borrar</button>
@@ -67,7 +67,7 @@
         </div>
     </div>
     <!-- MODAL CREAR USUARIO -->
-    <div class="modal fade" id="crearUsuario" data-bs-keyboard="false" tabindex="-1" aria-labelledby="crearUsuarioModal" aria-hidden="true">
+    {{-- <div class="modal fade" id="crearUsuario" data-bs-keyboard="false" tabindex="-1" aria-labelledby="crearUsuarioModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -103,5 +103,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
