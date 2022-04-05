@@ -30,10 +30,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
-    <body class="h-100">
+    <body class="h-100" style="background-color: #A5B2F0">
         <header>
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #263061;">
                 <div class="container-fluid">
                     <!-- Logo -->
                     <a class="navbar-brand" href="index">
@@ -78,7 +78,7 @@
                                         <form action="#" method="post">
                                             <input type="hidden" name="lang" value="en" />
                                             <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/english.png" width="30px"> English</button>
-                                        </form> 
+                                        </form>
                                     </li>
                                 </ul>
                             </li>

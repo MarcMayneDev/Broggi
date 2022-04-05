@@ -23,8 +23,10 @@ Route::get('/index', function () {
 
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/registro', function () {
     return view('registro');
-});
+})->name('registro');
+
+Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);

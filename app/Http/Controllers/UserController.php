@@ -40,11 +40,11 @@ class UserController extends Controller
     {
 
         $user = new User();
-        $user->usuari = $request->input('username');
-        $user->contrassenya = $request->input('password');
+        $user->usuari = $request->input('usuario');
         $user->nom = $request->input('nombre');
         $user->cognoms = $request->input('apellidos');
-        $user->perfils_id = $request->input('usertype');
+        $user->contrassenya = $request->input('contrasenya');
+        //$user->perfils_id = $request->input('usertype');
 
         try
         {
@@ -54,7 +54,7 @@ class UserController extends Controller
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
-
+        return view('login');
     }
 
     /**
