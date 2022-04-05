@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
 
 $users = User::all();
 class UserController extends Controller
@@ -57,6 +59,42 @@ class UserController extends Controller
             // $request->session()->flash('error', $message);
         }
         return view('login');
+    }
+
+    public function adminStore(Request $request)
+    {
+
+        $user = new User();
+        $user->usuari = $request->input('usuario');
+        $user->contrassenya = $request->input('contrasenya');
+        $user->nom = $request->input('nombre');
+        $user->cognoms = $request->input('apellidos');
+        $user->perfils_id = $request->input('usertype'); //$request->input('usertype');
+
+        try
+        {
+            $user->save();
+        } catch(QueryException $ex){
+            // ToDo -> Crear controlador de mensajes
+            // $message = ControladorMensajes::errorMessage($ex);
+            // $request->session()->flash('error', $message);
+        }
+        return redirect()->action([UserController::class, 'index']);
+    }
+
+    public function login(Request $request) {
+        $usuario = $request->input('usuario');
+        $password = $request->input('contrasenya');
+
+        $user = User::where('usuari', $usuario)
+                            ->first();
+
+        if ($user != null && Hash::check($password, $user->contrassenya)) {
+            Auth::login($usuario);
+            return view('index');
+        } else {
+            return redirect('login')->withInput();
+        }
     }
 
     /**

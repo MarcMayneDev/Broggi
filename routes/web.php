@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +37,16 @@ Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'des
 //     return view('admin', ['cicles' => $cicles]);
 // })->name('admin');
 
-Route::get('/admin/create', [App\Http\Controllers\UserController::class, 'create']);
+Route::post('/admin', [App\Http\Controllers\UserController::class, 'adminStore']);
 
 Route::get('/registro', function () {
     return view('registro');
-})->name('admin');
+})->name('registro');
 
 Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
