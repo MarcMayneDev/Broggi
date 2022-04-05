@@ -40,4 +40,14 @@ class Cartes_trucades extends Model
     {
         return $this->hasOne(Incidents::class, 'incidents_id');
     }
+
+    /**
+     * Get all of the comments for the Cartes_trucades
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cartes_trucades_has_agencies()
+    {
+        return $this->hasMany(Cartes_trucades_has_agencies::class, 'cartes_trucades_id');
+    }
 }

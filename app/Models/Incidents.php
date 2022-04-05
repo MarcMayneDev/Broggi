@@ -21,7 +21,7 @@ class Incidents extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function roles()
+    public function cartes_trucades()
     {
         return $this->belongsToMany(Cartes_trucades::class, 'cartes_trucades_id');
     }

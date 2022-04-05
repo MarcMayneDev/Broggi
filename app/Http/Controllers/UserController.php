@@ -40,10 +40,11 @@ class UserController extends Controller
     {
 
         $user = new User();
-        $user->codi = $request->input('usuari');
-        $user->contrassenya = $request->input('contrassenya');
-        $user->nom = $request->input('nom');
-        $user->cognoms = $request->input('cognoms');
+        $user->usuari = $request->input('username');
+        $user->contrassenya = $request->input('password');
+        $user->nom = $request->input('nombre');
+        $user->cognoms = $request->input('apellidos');
+        $user->perfils_id = $request->input('usertype');
 
         try
         {

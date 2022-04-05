@@ -74,7 +74,7 @@
                     <h5 class="modal-title" id="crearUsuarioModal">Crear nuevo usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="../controlers/createUser.php" method="POST" enctype="multipart/form-data">
+                <form action="{{ action([App\Http\Controllers\UserController::class, 'store']) }} " method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Nombre" aria-label="Nombre" required autofocus>
@@ -86,32 +86,14 @@
                             <input type="text" class="form-control" id="usuario" name="Usuario" placeholder="Usuario" aria-label="Usuario" required>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" class="form-control" id="correo" name="Correo" placeholder="Correo" aria-label="Usuario" required>
-                        </div>
-                        <div class="input-group mb-3">
                             <input type="password" class="form-control" id="password" name="Password" placeholder="Password" aria-label="Password" required>
                         </div>
                         <div class="input-group mb-3">
-                            <select class="form-select" id="curso" name="curso" aria-label="curso">
-                                <option selected>Cursos</option>
-                                <option value="Grado medio sistemas microinformáticos y redes">Grado medio sistemas microinformáticos y redes</option>
-                                <option value="Grado superior desarrollo aplicaciones web">Grado superior desarrollo aplicaciones web</option>
-                                <option value="Grado superior desarrollo aplicaciones multiplataforma">Grado superior desarrollo aplicaciones multiplataforma</option>
-                                <option value="Grado medio gestión administrativa">Grado medio gestión administrativa</option>
-                                <option value="Grado superior administración y finanzas">Grado superior administración y finanzas</option>
-                                <option value="Grado superior asistencia a la dirección">Grado superior asistencia a la dirección</option>
-                                <option value="Grado medio actividades comerciales">Grado medio actividades comerciales</option>
-                                <option value="Grado superior marketing y publicidad">Grado superior marketing y publicidad</option>
-                                <option value="Grado superior gestión de ventas y espacios comerciales">Grado superior gestión de ventas y espacios comerciales</option>
-                                <option value="Grado superior comercio internacional">Grado superior comercio internacional</option>
-                                <option value="Grado superior agencias de viajes y gestión de eventos">Grado superior agencias de viajes y gestión de eventos</option>
+                            <select class="form-select" id="usertype" name="usertype" aria-label="usertype">
+                                <option value="Operador" selected>Operador</option>
+                                <option value="Supervisor">Supervisor</option>
+                                <option value="Administrador">Administrador</option>
                             </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <input class="form-check-input" type="checkbox" id="Esadmin" name="Esadmin" value="0">
-                            <label class="form-check-label" for="esAdmin">
-                                &nbsp;Es Admin
-                            </label>
                         </div>
                     </div>
                     <div class="modal-footer">
