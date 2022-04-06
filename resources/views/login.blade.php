@@ -8,12 +8,16 @@
     Login
 @endsection
 
+@section('css')
+    <link href="css/login.css" rel="stylesheet">
+@endsection
+
 @section('main')
-    <div class="container mt-5">
+    <div class="container login">
         <form action="{{ action([App\Http\Controllers\UserController::class, 'login']) }}" method="POST">
             @csrf
             <div class="row justify-content-center">
-                <div class="card text-center text-white bg-dark" style="width: 27rem;">
+                <div class="card text-center text-white logincard" style="width: 27rem;">
                     <h2 class="card-title mt-4">Iniciar sesión</h2>
                     <div class="card-body">
                         <div class="input-group mt-2 mb-3">

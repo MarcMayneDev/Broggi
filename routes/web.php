@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
+
+// Landing Page
 Route::get('/', function () {
     return view('index');
 });
@@ -24,34 +26,30 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
-
+// Admin Page
 Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
 
 Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'destroy']);
 
-// Route::get('/admin', function () {
-//     return view('admin', ['cicles' => $cicles]);
-// })->name('admin');
-
 Route::post('/admin', [App\Http\Controllers\UserController::class, 'adminStore']);
 
+
+// Registro
 Route::get('/registro', function () {
     return view('registro');
 })->name('registro');
 
 Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);
 
+// Login
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
 
-
+// Editar Admin
 Route::get('/admin/edit', [App\Http\Controllers\UserController::class, 'edit']);
 
 Route::post('/admin/edit', [App\Http\Controllers\UserController::class, 'edit']);

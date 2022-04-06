@@ -9,7 +9,7 @@
 @endsection
 
 @section('css')
-    <link href="../resources/css/index.css" rel="stylesheet">
+
 @endsection
 
 @section('main')

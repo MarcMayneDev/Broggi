@@ -25,6 +25,7 @@
         @yield('logo_title')
         <title>@yield('title')</title>
         @yield('css')
+        <link rel="stylesheet" href="css/master.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -47,19 +48,24 @@
                             <!-- Video -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" aria-current="page" href="#">
-                                    <img src="img/iconos/info_day.png" width="30px">
+                                    <img src="img/iconos/info_blue.png" width="30px">
                                 </a>
                             </li>
                             <!-- Preguntas -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" href="#">
-                                    <img src="img/iconos/help_day.png" width="30px">
+                                    <img src="img/iconos/help_blue.png" width="30px">
+                                </a>
+                            </li>
+                            <li class="nav-item p-2">
+                                <a class="nav-link" href="admin">
+                                    <img src="img/iconos/admin_blue.png" width="30px">
                                 </a>
                             </li>
                             <!-- Idioma -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="img/iconos/lan_day.png" width="30px">
+                                    <img src="img/iconos/lan_blue.png" width="30px">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
@@ -85,7 +91,7 @@
                             <!-- Login -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="img/iconos/user_day.png" width="30px">
+                                    <img src="img/iconos/user_blue.png" width="30px">
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
                                     <li>
