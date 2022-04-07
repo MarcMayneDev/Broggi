@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class User extends Authenticatable
 {
     use HasFactory;
 
     protected $table = 'usuaris';
-
     // Id es la clave primaria default en Eloquent e incrementing es true por defecto.
     protected $primaryKey = 'id';
     public $incrementing = true;

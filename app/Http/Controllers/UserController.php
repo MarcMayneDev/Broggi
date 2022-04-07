@@ -66,7 +66,7 @@ class UserController extends Controller
 
         $user = new User();
         $user->usuari = $request->input('usuario');
-        $user->contrassenya = $request->input('contrasenya');
+        $user->contrassenya = Hash::make($request->input('contrasenya'));
         $user->nom = $request->input('nombre');
         $user->cognoms = $request->input('apellidos');
         $user->perfils_id = $request->input('usertype'); //$request->input('usertype');
@@ -90,11 +90,18 @@ class UserController extends Controller
                             ->first();
 
         if ($user != null && Hash::check($password, $user->contrassenya)) {
-            Auth::login($usuario);
+            Auth::login($user);
             return view('index');
         } else {
             return redirect('login')->withInput();
         }
+    }
+
+
+    public function logout() {
+        Auth::logout();
+
+        return redirect('/');
     }
 
     /**

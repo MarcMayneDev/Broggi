@@ -93,19 +93,28 @@
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="img/iconos/user_blue.png" width="30px">
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
-                                    <li>
-                                        <a href="login" class="align-items-center" style="text-decoration: none;">
-                                            <strong>Iniciar sesión</strong>
-                                        </a>
-                                    </li>
-                                    <hr>
-                                    <li>
-                                        <a href="registro" class="text-center" style="text-decoration: none;">
-                                            Crear una cuenta
-                                        </a>
-                                    </li>
-                                </ul>
+                                @if (Auth::check())
+                                    <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
+                                        <li>
+                                            <a class="dropdown-item text-black font-weight-bold" href="logout">Logout</a>
+                                        </li>
+                                    </ul>
+                                @else
+                                    <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
+                                        <li>
+                                            <a href="login" class="align-items-center" style="text-decoration: none;">
+                                                <strong>Iniciar sesión</strong>
+                                            </a>
+                                        </li>
+                                        <hr>
+                                        <li>
+                                            <a href="registro" class="text-center" style="text-decoration: none;">
+                                                Crear una cuenta
+                                            </a>
+                                        </li>
+                                    </ul>
+                                @endif
+
                             </li>
                         </ul>
                     </div>
