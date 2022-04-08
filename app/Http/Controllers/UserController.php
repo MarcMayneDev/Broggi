@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Perfil;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +21,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $data['users'] = $users;
 
-        return view('admin', ['users' => $users]);
+        $perfils = Perfil::All()->sortBy("id");
+        $data['perfils'] = $perfils;
+
+        return view('admin', $data);
     }
 
     /**
@@ -123,7 +128,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('adminEdit', ['user' => $user]);
+        $data['user'] = $user;
+        $perfils = Perfil::All();
+        $data['perfils'] = $perfils;
+        return view('adminEdit', $data);
     }
 
     /**

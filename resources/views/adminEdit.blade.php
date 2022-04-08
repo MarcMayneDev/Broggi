@@ -34,10 +34,13 @@
         </div>
         <div class="input-group mb-3">
             <select class="form-select" id="perfils_id" name="Perfils_id" aria-label="perfils_id">
-                <option selected value="{{ $user->perfils_id }}">{{ $user->perfils_id }}</option>
-                <option value="1">Operador</option>
-                <option value="2">Supervisor</option>
-                <option value="3">Administrador</option>
+                @foreach($perfils as $perfil)
+                    @if($perfil->id == $user->perfils_id)
+                        <option value="{{ $perfil->id }}" selected>{{ $perfil->id }}. {{ $perfil->nom}}</option>
+                    @else
+                        <option value="{{ $perfil->id }}">{{ $perfil->id }}. {{ $perfil->nom}}</option>
+                    @endif
+                @endforeach
             </select>
         </div>
         <a href="{{ action([App\Http\Controllers\UserController::class, 'index']) }}" class="btn btn-secondary">Volver</a>

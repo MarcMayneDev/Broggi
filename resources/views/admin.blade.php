@@ -29,10 +29,9 @@
                         <tr class="table-dark">
                             <th scope="col">ID</th>
                             <th scope="col">Nombre de Usuario</th>
-                            <th scope="col">Password</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Surname</th>
-                            <th scope="col">PerfilsID</th>
+                            <th scope="col">Perfil</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
@@ -42,10 +41,13 @@
                             <tr>
                                 <td>{{ $user->id; }}</td>
                                 <td>{{ $user->usuari; }}</td>
-                                <td>{{ $user->contrassenya; }}</td>
                                 <td>{{ $user->nom; }}</td>
                                 <td>{{ $user->cognoms; }}</td>
-                                <td>{{ $user->perfils_id; }}</td>
+                                @foreach($perfils as $perfil)
+                                    @if($perfil->id == $user->perfils_id)
+                                        <td>{{ $perfil->nom}}</td>
+                                    @endif
+                                @endforeach
                                 <td>
                                     <form action="{{ action([App\Http\Controllers\UserController::class, 'edit'], [$user->id])}}" method="POST">
                                         @csrf
@@ -91,9 +93,9 @@
                         </div>
                         <div class="input-group mb-3">
                             <select class="form-select" id="usertype" name="usertype" aria-label="usertype">
-                                <option value="1" selected>Operador</option>
-                                <option value="2">Supervisor</option>
-                                <option value="3">Administrador</option>
+                                @foreach($perfils as $perfil)
+                                    <option value="{{ $perfil->id }}">{{ $perfil->id }}. {{ $perfil->nom}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
