@@ -47,9 +47,9 @@
                                 <td>{{ $user->cognoms; }}</td>
                                 <td>{{ $user->perfils_id; }}</td>
                                 <td>
-                                    <form action="{{ action([App\Http\Controllers\UserController::class, 'edit'], ['user' =>$user->id])}}" method="POST">
+                                    <form action="{{ action([App\Http\Controllers\UserController::class, 'edit'], [$user->id])}}" method="POST">
+                                        @csrf
                                         <button type="submit" class="btn btn-outline-primary btn-sm">Editar</i></button>
-                                        <input type="hidden" name="id" value="{{$user->id }}">
                                     </form>
                                 </td>
                                 <td>

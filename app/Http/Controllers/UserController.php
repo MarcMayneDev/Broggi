@@ -69,7 +69,7 @@ class UserController extends Controller
         $user->contrassenya = Hash::make($request->input('contrasenya'));
         $user->nom = $request->input('nombre');
         $user->cognoms = $request->input('apellidos');
-        $user->perfils_id = $request->input('usertype'); //$request->input('usertype');
+        $user->perfils_id = $request->input('usertype');
 
         try
         {
@@ -123,7 +123,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('adminEdit');
+        return view('adminEdit', ['user' => $user]);
     }
 
     /**
@@ -135,10 +135,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->usuari = $request->input('usuario');
-        $user->contrassenya = $request->input('contrasenya');
-        $user->nom = $request->input('nombre');
-        $user->cognoms = $request->input('apellidos');
+        $user->usuari = $request->input('usuari');
+        $user->contrassenya = Hash::make($request->input('contrassenya'));
+        $user->nom = $request->input('nom');
+        $user->cognoms = $request->input('cognoms');
+        $user->perfils_id = $request->input('perfils_id');
 
         try
         {
@@ -148,6 +149,7 @@ class UserController extends Controller
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
+        return redirect()->action([UserController::class, 'index']);
     }
 
     /**

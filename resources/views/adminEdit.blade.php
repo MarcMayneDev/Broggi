@@ -9,32 +9,32 @@
 @endsection
 
 @section('css')
-    
+
 @endsection
 
 @section('main')
 <div class="container mt-3">
-    <form action="{{ action([App\Http\Controllers\UserController::class, 'update']) }}" method="POST" enctype="multipart/form-data">
-        @csrf
+    <form action="{{ action([App\Http\Controllers\UserController::class, 'update'], [$user->id]) }}" method="POST">
         @method('PUT')
+        @csrf
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="id" name="id" placeholder="Id" value="{{ echo $user['id'] }} " readonly required>
+            <input type="text" class="form-control" id="id" name="id" placeholder="Id" value="{{ $user->id }} " readonly required>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="nombre" name="Nombre" placeholder="Nombre" value="{{ echo $user['nom'] }}" required autofocus>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nombre" value="{{ $user->nom }}" required autofocus>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="apellido" name="Apellido" placeholder="Apellido" value="{{ echo $user['cognoms'] }}" required>
+            <input type="text" class="form-control" id="cognoms" name="cognoms" placeholder="Apellido" value="{{ $user->cognoms }}" required>
         </div>
         <div class="input-group mb-3">
-            <input type="text" class="form-control" id="usuario" name="Usuario" placeholder="Usuario" value="{{ echo $user['usuari'] }}" required>
+            <input type="text" class="form-control" id="usuari" name="usuari" placeholder="Usuario" value="{{ $user->usuari }}" required>
         </div>
         <div class="input-group mb-3">
-            <input type="password" class="form-control" id="password" name="Password" placeholder="Password" value="{{ echo $user['contrassenya'] }}" required>
+            <input type="password" class="form-control" id="contrassenya" name="contrassenya" placeholder="Password" value="{{ $user->contrassenya }}" required>
         </div>
         <div class="input-group mb-3">
-            <select class="form-select" id="curso" name="curso" aria-label="curso">
-                <option selected value="{{ echo $user['perfil_id'] }}">{{ echo $user['perfil_id'] }}</option>
+            <select class="form-select" id="perfils_id" name="Perfils_id" aria-label="perfils_id">
+                <option selected value="{{ $user->perfils_id }}">{{ $user->perfils_id }}</option>
                 <option value="1">Operador</option>
                 <option value="2">Supervisor</option>
                 <option value="3">Administrador</option>

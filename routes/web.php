@@ -52,9 +52,6 @@ Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
 Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout']);
 
 
-// Editar Admin
-Route::get('/admin/edit', [App\Http\Controllers\UserController::class, 'edit']);
-
-Route::post('/admin/edit', [App\Http\Controllers\UserController::class, 'edit']);
-
-Route::put('/admin/edit', [App\Http\Controllers\UserController::class, 'update']);
+// Usuario
+Route::post('/usuari/{user}/edit', [App\Http\Controllers\UserController::class, 'edit']);
+Route::put('/usuari/{user}', [App\Http\Controllers\UserController::class, 'update']);
