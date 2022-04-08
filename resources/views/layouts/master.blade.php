@@ -14,6 +14,12 @@
     if (!isset($_SESSION['language'])) {
         $_SESSION['language'] = "es";
     }
+    if (Auth::user()) {
+        $usertype = Auth::user()->perfils_id;
+    }
+    else {
+        $usertype = 0;
+    }
 
 ?>
 
@@ -57,11 +63,13 @@
                                     <img src="img/iconos/help_blue.png" width="30px">
                                 </a>
                             </li>
-                            <li class="nav-item p-2">
-                                <a class="nav-link" href="admin">
-                                    <img src="img/iconos/admin_blue.png" width="30px">
-                                </a>
-                            </li>
+                            @if ($usertype === 3)
+                                <li class="nav-item p-2">
+                                    <a class="nav-link" href="admin">
+                                        <img src="img/iconos/admin_blue.png" width="30px">
+                                    </a>
+                                </li>
+                            @endif
                             <!-- Idioma -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
