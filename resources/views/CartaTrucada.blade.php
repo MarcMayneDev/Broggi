@@ -14,8 +14,71 @@
 
 @section('main')
     <div class="container cartesTrucades">
-        <form action="{{ action([App\Http\Controllers\::class, '']) }}" method="post">
-
+        <form id="carta_trucada" action="#" method="post">
+        @csrf
+            <div class="input-group mb-3">
+                <input type="date" class="form-control" id="data_hora" name="data_hora">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="procedencia_trucada" name="procedencia_trucada" placeholder="Procedencia trucada">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="origen_trucada" name="origen_trucada" placeholder="Origen trucada">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="nom_trucada" name="nom_trucada" placeholder="Nom trucada">
+            </div>
+            <div class="input-group mb-3 text-dark">
+                Fora de Catalunya? <input type="checkbox" name="fora_catalunya" id="fora_catalunya">
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
+                    @foreach($provincies as $provincia)
+                        <option value="{{ $provincia->id }}">{{ $provincia->id }}. {{ $provincia->nom}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
+                    @foreach($comarques as $comarca)
+                        <option value="{{ $comarca->id }}">{{ $comarca->id }}. {{ $comarca->nom}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
+                    @foreach($municipis as $municipi)
+                        <option value="{{ $municipi->id }}">{{ $municipi->id }}. {{ $municipi->nom}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" id="tipus_localitzacions" name="tipus_localitzacions" aria-label="tipus_localitzacions">
+                    @foreach($tipus_localitzacions as $tipus_localitzacio)
+                        <option value="{{ $tipus_localitzacio->id }}">{{ $tipus_localitzacio->id }}. {{ $tipus_localitzacio->tipus}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <textarea form="carta_trucada" name="descripcio_localitzacio" id="descripcio_localitzacio" cols="200" rows="4" placeholder="Descripcio localització"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <textarea form="carta_trucada" name="detall_localitzacio" id="detall_localitzacio" cols="200" rows="4" placeholder="Detall localització"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <textarea form="carta_trucada" name="altres_ref_localitzacio" id="altres_ref_localitzacio" cols="200" rows="4" placeholder="Altres referencies localització"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-select" id="incidents_id" name="incidents_id" aria-label="incidents_id">
+                    @foreach($incidents as $incident)
+                        <option value="{{ $incident->id }}">{{ $incident->codi }}. {{ $incident->descripcio}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success btn-sm">Enviar</button>
         </form>
     </div>
 @endsection

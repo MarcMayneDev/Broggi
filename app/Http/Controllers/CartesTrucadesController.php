@@ -2,6 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Provincies;
+use App\Models\Comarques;
+use App\Models\Municipis;
+use App\Models\Tipus_localitzacions;
+use App\Models\Incidents;
+
+
 use App\Models\Cartes_trucades;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +22,22 @@ class CartesTrucadesController extends Controller
      */
     public function index()
     {
-        //
+        $provincies = Provincies::all();
+        $data['provincies'] = $provincies;
+
+        $comarques = Comarques::all();
+        $data['comarques'] = $comarques;
+
+        $municipis = Municipis::all();
+        $data['municipis'] = $municipis;
+
+        $tipus_localitzacions = Tipus_localitzacions::all();
+        $data['tipus_localitzacions'] = $tipus_localitzacions;
+
+        $incidents = Incidents::all();
+        $data['incidents'] = $incidents;
+
+        return view('cartaTrucada', $data);
     }
 
     /**

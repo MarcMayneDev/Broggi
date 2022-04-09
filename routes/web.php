@@ -26,6 +26,8 @@ Route::get('/index', function () {
     return view('index');
 });
 
+Route::get('/cartaTrucada', [App\Http\Controllers\CartesTrucadesController::class, 'index']);
+
 
 // Admin Page
 Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
