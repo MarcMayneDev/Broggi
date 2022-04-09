@@ -76,7 +76,7 @@
                     <h5 class="modal-title" id="crearUsuarioModal">Crear nuevo usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ action([App\Http\Controllers\UserController::class, 'adminStore']) }} " method="POST">
+                <form action="{{ action([App\Http\Controllers\UserController::class, 'store']) }} " method="POST">
                     @csrf
                     <div class="modal-body">
                         <div class="input-group mb-3">

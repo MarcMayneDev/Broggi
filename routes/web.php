@@ -34,7 +34,7 @@ Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
 
 Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'destroy']);
 
-Route::post('/admin', [App\Http\Controllers\UserController::class, 'adminStore']);
+Route::post('/admin', [App\Http\Controllers\UserController::class, 'store']);
 
 
 // Registro

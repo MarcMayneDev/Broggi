@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
 
-$users = User::all();
 class UserController extends Controller
 {
     /**
@@ -39,36 +38,8 @@ class UserController extends Controller
         return view('adminCreate');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-
-        $user = new User();
-        $user->usuari = $request->input('usuario');
-        $user->contrassenya = $request->input('contrasenya');
-        $user->nom = $request->input('nombre');
-        $user->cognoms = $request->input('apellidos');
-        $user->perfils_id = 1; //$request->input('usertype');
-
-        try
-        {
-            $user->save();
-        } catch(QueryException $ex){
-            // ToDo -> Crear controlador de mensajes
-            // $message = ControladorMensajes::errorMessage($ex);
-            // $request->session()->flash('error', $message);
-        }
-        return view('login');
-    }
-
-    public function adminStore(Request $request)
-    {
-
         $user = new User();
         $user->usuari = $request->input('usuario');
         $user->contrassenya = Hash::make($request->input('contrasenya'));
@@ -76,14 +47,14 @@ class UserController extends Controller
         $user->cognoms = $request->input('apellidos');
         $user->perfils_id = $request->input('usertype');
 
-        try
-        {
+        try {
             $user->save();
-        } catch(QueryException $ex){
+        } catch(QueryException $ex) {
             // ToDo -> Crear controlador de mensajes
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
+
         return redirect()->action([UserController::class, 'index']);
     }
 
@@ -110,17 +81,6 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user
@@ -131,6 +91,7 @@ class UserController extends Controller
         $data['user'] = $user;
         $perfils = Perfil::All();
         $data['perfils'] = $perfils;
+
         return view('adminEdit', $data);
     }
 
@@ -149,14 +110,14 @@ class UserController extends Controller
         $user->cognoms = $request->input('cognoms');
         $user->perfils_id = $request->input('perfils_id');
 
-        try
-        {
+        try {
             $user->save();
-        } catch(QueryException $ex){
+        } catch(QueryException $ex) {
             // ToDo -> Crear controlador de mensajes
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
+
         return redirect()->action([UserController::class, 'index']);
     }
 
@@ -168,14 +129,14 @@ class UserController extends Controller
      */
     public function destroy(Request $request, User $user)
     {
-        try
-        {
+        try {
             $user->delete();
-        } catch(QueryException $ex){
+        } catch(QueryException $ex) {
             // ToDo -> Crear controlador de mensajes
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
+
         return redirect()->action([UserController::class, 'index']);
     }
 }

@@ -14,13 +14,12 @@
     if (!isset($_SESSION['language'])) {
         $_SESSION['language'] = "es";
     }
+
     if (Auth::user()) {
         $usertype = Auth::user()->perfils_id;
-    }
-    else {
+    } else {
         $usertype = 0;
     }
-
 ?>
 
 <!DOCTYPE html>
