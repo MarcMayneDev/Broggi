@@ -17,10 +17,10 @@
         <form id="carta_trucada" action="#" method="post">
         @csrf
             <div class="input-group mb-3">
-                <input type="date" class="form-control" id="data_hora" name="data_hora">
+                <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
             </div>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
+                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
             </div>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" id="procedencia_trucada" name="procedencia_trucada" placeholder="Procedencia trucada">
@@ -34,6 +34,7 @@
             <div class="input-group mb-3 text-dark">
                 Fora de Catalunya? <input type="checkbox" name="fora_catalunya" id="fora_catalunya">
             </div>
+            {{-- onSelect, llamar a funcion que calcule que mostrar --}}
             <div class="input-group mb-3">
                 <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
                     @foreach($provincies as $provincia)
@@ -42,16 +43,16 @@
                 </select>
             </div>
             <div class="input-group mb-3">
-                <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
+                <select class="form-select" id="comarques_id" name="comarques_id" aria-label="comarques_id">
                     @foreach($comarques as $comarca)
-                        <option value="{{ $comarca->id }}">{{ $comarca->id }}. {{ $comarca->nom}}</option>
+                        <option value="{{ $comarca->id }}" data-provincia="{{ $comarca->provincies_id }}">{{ $comarca->id }}. {{ $comarca->nom}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="input-group mb-3">
-                <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
+                <select class="form-select" id="municipis_id" name="municipis_id" aria-label="municipis_id">
                     @foreach($municipis as $municipi)
-                        <option value="{{ $municipi->id }}">{{ $municipi->id }}. {{ $municipi->nom}}</option>
+                        <option value="{{ $municipi->id }}" data-comarca="{{ $municipi->comarques_id }}">{{ $municipi->id }}. {{ $municipi->nom}}</option>
                     @endforeach
                 </select>
             </div>

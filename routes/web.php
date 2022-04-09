@@ -21,19 +21,13 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/', function () {
     return view('index');
 });
-
 Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/cartaTrucada', [App\Http\Controllers\CartesTrucadesController::class, 'index']);
-
-
 // Admin Page
 Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
-
 Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'destroy']);
-
 Route::post('/admin', [App\Http\Controllers\UserController::class, 'store']);
 
 
@@ -41,19 +35,20 @@ Route::post('/admin', [App\Http\Controllers\UserController::class, 'store']);
 Route::get('/registro', function () {
     return view('registro');
 })->name('registro');
-
 Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);
 
 // Login
 Route::get('/login', function () {
     return view('login');
 })->name('login');
-
 Route::post('/login', [App\Http\Controllers\UserController::class, 'login']);
-
 Route::get('/logout', [App\Http\Controllers\UserController::class, 'logout']);
-
 
 // Usuario
 Route::post('/usuari/{user}/edit', [App\Http\Controllers\UserController::class, 'edit']);
 Route::put('/usuari/{user}', [App\Http\Controllers\UserController::class, 'update']);
+
+// Carta Trucada
+/* Route::get('/cartaTrucada', [App\Http\Controllers\CartesTrucadesController::class, 'index']); */
+Route::get('/cartaTrucada/create', [App\Http\Controllers\CartesTrucadesController::class, 'create']);
+/* Route::post('/cartaTrucada/create', [App\Http\Controllers\CartesTrucadesController::class, 'store']); */
