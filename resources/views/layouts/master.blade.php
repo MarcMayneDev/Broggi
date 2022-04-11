@@ -69,10 +69,34 @@
                                 </a>
                             </li>
                             <!-- Preguntas -->
-                            <li class="nav-item p-2">
-                                <a class="nav-link" href="#">
+                            <li class="nav-item dropstart p-2">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="{{ asset('img/iconos/help_blue.png') }}" width="30px">
                                 </a>
+                                <ul class="dropdown-menu p-4" aria-labelledby="navbarDropdown" style="width: 400px;">
+                                    <p>
+                                        <b>What's your emergency?</b><br>
+                                        A traffic accident.<br>
+                                        A sick person.<br>
+                                        <b>What's the address of the emergency?</b><br>
+                                        In a park.<br>
+                                        In a square.<br>
+                                        <b>What is the problem? What exactly happened?</b><br>
+                                        There's been a traffic accident.<br>
+                                        A person has collapsed.<br>
+                                        <b>Are you alone?</b><br>
+                                        Yes, I was alone when my car crashed.<br>
+                                        No, I was with my sister when my car crashed.<br>
+                                        <b>How old is the person?</b><br>
+                                        My sister is 20 years old.<br>
+                                        This person appears to be about 25 years old.<br>
+                                        <b>Can you repeat it to make sure I have it correctly?</b><br>
+                                        I was with my sister when my car crashed.<br>
+                                        She is 20 years old.<br>
+                                        <b>What is the phone number you are calling from?</b><br>
+                                        My phone number is 612345789.
+                                    </p>
+                                </ul>
                             </li>
                             @if ($usertype === 3)
                                 <li class="nav-item p-2">
