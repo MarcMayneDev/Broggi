@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('logo_title')
-    <link rel="icon" href="img/broggi_title.jpg" type="image/png">
+    <link rel="icon" href="{{ asset('img/broggi_title.jpg') }}" type="image/png">
 @endsection
 
 @section('title')

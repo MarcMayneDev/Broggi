@@ -50,53 +50,59 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <!-- Grafico -->
+                            <li class="nav-item p-2">
+                                <a class="nav-link" aria-current="page" href="{{ url('grafico') }}">
+                                    <img src="{{ asset('img/iconos/grafico.png') }}" width="30px">
+                                </a>
+                            </li>
                             <!-- Carta Trucada -->
                             <li class="nav-item p-2">
-                                <a class="nav-link" aria-current="page" href="cartaTrucada/create">
-                                    Carta Trucada
+                                <a class="nav-link" aria-current="page" href="{{ url('cartaTrucada/create') }}">
+                                    <img src="{{ asset('img/iconos/carta.png') }}" width="30px">
                                 </a>
                             </li>
                             <!-- Video -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" aria-current="page" href="#">
-                                    <img src="img/iconos/info_blue.png" width="30px">
+                                    <img src="{{ asset('img/iconos/info_blue.png') }}" width="30px">
                                 </a>
                             </li>
                             <!-- Preguntas -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" href="#">
-                                    <img src="img/iconos/help_blue.png" width="30px">
+                                    <img src="{{ asset('img/iconos/help_blue.png') }}" width="30px">
                                 </a>
                             </li>
                             @if ($usertype === 3)
                                 <li class="nav-item p-2">
                                     <a class="nav-link" href="admin">
-                                        <img src="img/iconos/admin_blue.png" width="30px">
+                                        <img src="{{ asset('img/iconos/admin_blue.png') }}" width="30px">
                                     </a>
                                 </li>
                             @endif
                             <!-- Idioma -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="img/iconos/lan_blue.png" width="30px">
+                                    <img src="{{ asset('img/iconos/lan_blue.png')}}" width="30px">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
                                         <form action="#" method="post">
                                             <input type="hidden" name="lang" value="es" />
-                                            <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/spanish.png" width="30px"> Español</button>
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="{{ asset('img/iconos/spanish.png') }}" width="30px"> Español</button>
                                         </form>
                                     </li>
                                     <li>
                                         <form action="#" method="post">
                                             <input type="hidden" name="lang" value="ca" />
-                                            <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/catalonian.svg" width="30px"> Català</button>
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="{{ asset('img/iconos/catalonian.png') }}" width="30px"> Català</button>
                                         </form>
                                     </li>
                                     <li>
                                         <form action="#" method="post">
                                             <input type="hidden" name="lang" value="en" />
-                                            <button type="submit" class="dropdown-item" id="idioma"><img src="img/iconos/english.png" width="30px"> English</button>
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="{{ asset('img/iconos/english.png') }}" width="30px"> English</button>
                                         </form>
                                     </li>
                                 </ul>
@@ -104,24 +110,24 @@
                             <!-- Login -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="img/iconos/user_blue.png" width="30px">
+                                    <img src="{{ asset('img/iconos/user_blue.png') }}" width="30px">
                                 </a>
                                 @if (Auth::check())
                                     <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
                                         <li>
-                                            <a class="dropdown-item text-black font-weight-bold" href="logout">Logout</a>
+                                            <a class="dropdown-item text-black font-weight-bold" href="{{ url('logout') }}">Logout</a>
                                         </li>
                                     </ul>
                                 @else
                                     <ul class="dropdown-menu dropdown-menu-end  " aria-labelledby="navbarDropdownUser">
                                         <li>
-                                            <a href="login" class="align-items-center" style="text-decoration: none;">
+                                            <a href="{{ url('login') }}" class="align-items-center" style="text-decoration: none;">
                                                 <strong>Iniciar sesión</strong>
                                             </a>
                                         </li>
                                         <hr>
                                         <li>
-                                            <a href="registro" class="text-center" style="text-decoration: none;">
+                                            <a href="{{ url('registro') }}" class="text-center" style="text-decoration: none;">
                                                 Crear una cuenta
                                             </a>
                                         </li>
