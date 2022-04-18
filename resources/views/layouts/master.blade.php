@@ -120,7 +120,7 @@
                                     <li>
                                         <form action="#" method="post">
                                             <input type="hidden" name="lang" value="ca" />
-                                            <button type="submit" class="dropdown-item" id="idioma"><img src="{{ asset('img/iconos/catalonian.png') }}" width="30px"> Català</button>
+                                            <button type="submit" class="dropdown-item" id="idioma"><img src="{{ asset('img/iconos/catalonian.svg') }}" width="30px"> Català</button>
                                         </form>
                                     </li>
                                     <li>

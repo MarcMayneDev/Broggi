@@ -13,8 +13,8 @@ class GraficoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('grafico.grafico');
+    public function index() {
+        $data['comarques'] = Comarques::all();
+        return view('grafico.grafico', $data);
     }
 }

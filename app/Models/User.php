@@ -14,6 +14,10 @@ class User extends Authenticatable
     public $incrementing = true;
     public $timestamps = false; // updated_at && created_at
 
+    protected $fillable = [
+        'usuari',
+    ];
+
     public function perfils()
     {
         return $this->hasMany(Perfil::class, 'perfils_id');
