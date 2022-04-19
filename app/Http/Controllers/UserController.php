@@ -104,10 +104,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->usuari = $request->input('usuari');
-        $user->contrassenya = Hash::make($request->input('contrassenya'));
+        $user->id = $request->input('id');
         $user->nom = $request->input('nom');
         $user->cognoms = $request->input('cognoms');
+        $user->usuari = $request->input('usuari');
+        $user->contrassenya = Hash::make($request->input('contrassenya'));
         $user->perfils_id = $request->input('perfils_id');
 
         try {
@@ -117,7 +118,6 @@ class UserController extends Controller
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
-
         return redirect()->action([UserController::class, 'index']);
     }
 

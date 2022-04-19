@@ -39,19 +39,12 @@
 
     const entries = [["Provincia", "Count"], ...Object.entries(provinciesCount)];
 
-    const obj1 = {nom: "MARc", cognom: "Martínez"}
-    const obj2 = {nom: "Adrià", edad: 12}
-
-    const obj3 = {obj1, ...obj2}
-
-    {nom: "Adrià", cognom: "Martínez",  edad: 12}
-
     // Draw the chart and set the chart values
     function drawChart() {
         let data = google.visualization.arrayToDataTable(entries);
 
         // Optional; add a title and set the width and height of the chart
-        let options = {'title':'My Average Day', 'width':550, 'height':400};
+        let options = {'title':'Comarques a cada Provincia', 'width':550, 'height':400};
 
         // Display the chart inside the <div> element with id="piechart"
         let chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -59,6 +52,6 @@
     }
     </script>
 
-<div id="piechart"></div>
+<div id="piechart" class="d-flex justify-content-center mt-5"></div>
     {{-- <script src="{{ asset('js/events/graficos/usuarios/userGraphic.js') }}"></script> --}}
 @endsection

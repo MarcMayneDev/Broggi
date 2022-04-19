@@ -33,10 +33,10 @@
             <input type="password" class="form-control" id="contrassenya" name="contrassenya" placeholder="Password" value="{{ $user->contrassenya }}" required>
         </div>
         <div class="input-group mb-3">
-            <select class="form-select" id="perfils_id" name="Perfils_id" aria-label="perfils_id">
+            <select class="form-select" id="perfils_id" name="perfils_id" aria-label="perfils_id">
                 @foreach($perfils as $perfil)
                     @if($perfil->id == $user->perfils_id)
-                        <option value="{{ $perfil->id }}" selected>{{ $perfil->id }}. {{ $perfil->nom}}</option>
+                        <option value="{{ $perfil->id }}">{{ $perfil->id }}. {{ $perfil->nom}}</option>
                     @else
                         <option value="{{ $perfil->id }}">{{ $perfil->id }}. {{ $perfil->nom}}</option>
                     @endif

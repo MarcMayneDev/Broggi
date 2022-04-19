@@ -16,6 +16,9 @@
     <div class="container cartesTrucades">
         <form id="carta_trucada" action="#" method="post">
         @csrf
+            <div class="" id="contador">
+                00:00
+            </div>
             <div class="input-group mb-3">
                 <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
             </div>
@@ -79,7 +82,27 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-success btn-sm">Enviar</button>
+            <button type="submit" id="enviar" class="btn btn-success btn-sm">Enviar</button>
         </form>
     </div>
+
+    <script>
+        const contador = document.getElementById("contador");
+        const enviar = document.getElementById("enviar");
+        let tiempo = 0;
+        const tiempollamada = setInterval(function () {
+            ++tiempo;
+            var minute = Math.floor((tiempo)/60);
+            var seconds = tiempo - minute*60;
+            if(minute < 10)
+                minute = "0"+minute;
+            if(seconds < 10)
+                seconds = "0"+seconds;
+                contador.innerHTML = minute + ":" + seconds;
+        }, 950);
+
+        enviar.addEventListener("click", function() {
+            clearInterval(tiempollamada);
+        })
+    </script>
 @endsection
