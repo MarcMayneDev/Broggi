@@ -76,20 +76,26 @@ class CartesTrucadesController extends Controller
     public function store(Request $request)
     {
         $cartes_trucades = new Cartes_trucades();
+        $cartes_trucades->temps_trucada = $request->input('time');
         $cartes_trucades->data_hora = $request->input('data_hora');
         $cartes_trucades->telefon = $request->input('telefon');
         $cartes_trucades->procedencia_trucada = $request->input('procedencia_trucada');
         $cartes_trucades->origen_trucada = $request->input('origen_trucada');
         $cartes_trucades->nom_trucada = $request->input('nom_trucada');
+
+        // Ubicacio
         $cartes_trucades->fora_catalunya = $request->input('fora_catalunya');
         $cartes_trucades->provincies_id = $request->input('provincies_id');
         $cartes_trucades->comarques_id = $request->input('comarques_id');
         $cartes_trucades->municipis_id = $request->input('municipis_id');
+        
+        // Localitzacio
         $cartes_trucades->tipus_localitzacions = $request->input('tipus_localitzacions');
-
         $cartes_trucades->descripcio_localitzacio = $request->input('descripcio_localitzacio');
         $cartes_trucades->detall_localitzacio = $request->input('detall_localitzacio');
         $cartes_trucades->altres_ref_localitzacio = $request->input('altres_ref_localitzacio');
+
+
         $cartes_trucades->incidents_id = $request->input('incidents_id');
 
         try
@@ -100,7 +106,7 @@ class CartesTrucadesController extends Controller
             // $message = ControladorMensajes::errorMessage($ex);
             // $request->session()->flash('error', $message);
         }
-        return view('login');
+        return view('index');
     }
 
     /**

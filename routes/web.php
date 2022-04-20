@@ -30,6 +30,11 @@ Route::get('/admin', [App\Http\Controllers\UserController::class, 'index']);
 Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'destroy']);
 Route::post('/admin', [App\Http\Controllers\UserController::class, 'store']);
 
+//Expedientes
+Route::get('/expedientes', function () {
+    return view('expedientes');
+});
+Route::post('/expedientes', [App\Http\Controllers\CartesTrucadesController::class, 'store']);
 
 // Registro
 Route::get('/registro', function () {

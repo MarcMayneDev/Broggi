@@ -98,6 +98,7 @@
                                     </p>
                                 </ul>
                             </li>
+                            <!-- Admin -->
                             @if ($usertype === 3)
                                 <li class="nav-item p-2">
                                     <a class="nav-link" href="admin">
@@ -105,6 +106,14 @@
                                     </a>
                                 </li>
                             @endif
+                            <!-- Expedientes -->
+                            <li class="nav-item p-2">
+                                    <a class="nav-link" href="expedientes">
+                                        <img src="{{ asset('img/iconos/expedientes.png') }}" width="30px">
+                                    </a>
+                                </li>
+                            <!-- @if ($usertype === 2) -->
+                            <!--@endif-->
                             <!-- Idioma -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

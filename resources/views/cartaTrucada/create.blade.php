@@ -14,11 +14,12 @@
 
 @section('main')
     <div class="container cartesTrucades">
-        <form id="carta_trucada" action="#" method="post">
+        <form id="carta_trucada" action="{{action([App\Http\Controllers\CartesTrucadesController::class, 'store'])}}" method="post">
         @csrf
             <div class="" id="contador">
                 00:00
             </div>
+            <input type="hidden" id="time" name="time" value="0">
             <div class="input-group mb-3">
                 <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
             </div>
@@ -89,6 +90,7 @@
     <script>
         const contador = document.getElementById("contador");
         const enviar = document.getElementById("enviar");
+        const time = document.getElementById("time");
         let tiempo = 0;
         const tiempollamada = setInterval(function () {
             ++tiempo;
@@ -99,7 +101,8 @@
             if(seconds < 10)
                 seconds = "0"+seconds;
                 contador.innerHTML = minute + ":" + seconds;
-        }, 950);
+                time.value = tiempo;
+        }, 1000);
 
         enviar.addEventListener("click", function() {
             clearInterval(tiempollamada);
