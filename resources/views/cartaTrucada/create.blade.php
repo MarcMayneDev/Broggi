@@ -46,7 +46,7 @@ $date = $fecha . "T" . $hora;
                 <input type="text" class="form-control col-6" id="origen_trucada" name="origen_trucada" placeholder="Origen trucada">
             </div>
             <div class="form-check form-switch mb-2">
-                <input class="form-check-input" type="checkbox" role="switch" name="fora_catalunya" id="fora_catalunya">
+                <input class="form-check-input" type="checkbox" role="switch" name="fora_catalunya" value="1" id="fora_catalunya">
                 <label class="form-check-label" for="fora_catalunya">Fora de Catalunya?</label>
             </div>
             <!-- Ubicació -->

@@ -98,11 +98,13 @@ class CartesTrucadesController extends Controller
         $cartes_trucades->usuaris_id = $request->input('userid');
         $cartes_trucades->nota_comuna = $request->input('nota_comuna');
 
-        $cartes_trucades->fora_catalunya = $request->input('fora_catalunya') ?? false;
-        if (!$cartes_trucades->fora_catalunya) {
-            $cartes_trucades->provincies_id = $request->input('provincies_id');
-            $cartes_trucades->municipis_id = $request->input('municipis_id');
+        if($request->input('fora_catalunya')){
+            $cartes_trucades->fora_catalunya = $request->input('fora_catalunya');
+        } else{
+            $cartes_trucades->fora_catalunya = "0";
         }
+        $cartes_trucades->provincies_id = $request->input('provincies_id');
+        $cartes_trucades->municipis_id = $request->input('municipis_id');
 
         $cartes_trucades->tipus_localitzacions_id = $request->input('tipus_localitzacions');
         $cartes_trucades->descripcio_localitzacio = $request->input('descripcio_localitzacio');
@@ -116,6 +118,7 @@ class CartesTrucadesController extends Controller
         // Cuando hay que pedir los datos personales?
         // Como se genera codi trucada?
         // Que es municipis id trucada?
+        // Si la provincia es de fora de Catalunya, com indico la provincia y el municipi? Si només tenim provincies de catalunya
         $cartes_trucades->codi_trucada = "test_codi";
         $cartes_trucades->dades_personals_id = 1;
         $cartes_trucades->municipis_id_trucada = 1;
