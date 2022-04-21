@@ -1,5 +1,12 @@
 @extends('layouts.master')
 
+<?php
+date_default_timezone_set("Europe/Madrid");
+$fecha = date("Y-m-d");
+$hora = date("H:i");
+$date = $fecha . "T" . $hora;
+?>
+
 @section('logo_title')
     <link rel="icon" href="{{ asset('img/broggi_title.jpg') }}" type="image/png">
 @endsection
@@ -19,7 +26,7 @@
             <!-- Data -->
             <div class="input-group mt-3 mb-3 d-flex">
                 <div class="col-3">
-                    <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
+                    <input type="datetime-local" class="form-control" id="data_hora" name="data_hora" value="{{ $date }}">
                 </div>
                 <!-- Timer -->
                 <div class="bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1">
@@ -47,30 +54,30 @@
             <div class="input-group mb-3">
                 <select class="form-select me-1" id="provincies_id" name="provincies_id" aria-label="provincies_id">
                     @foreach($provincies as $provincia)
-                        <option value="{{ $provincia->id }}">{{ $provincia->id }}. {{ $provincia->nom}}</option>
+                        <option value="{{ $provincia->id }}">{{ $provincia->nom}}</option>
                     @endforeach
                 </select>
                 <select class="form-select me-1" id="comarques_id" name="comarques_id" aria-label="comarques_id">
                     @foreach($comarques as $comarca)
-                        <option value="{{ $comarca->id }}" data-provincia="{{ $comarca->provincies_id }}">{{ $comarca->id }}. {{ $comarca->nom}}</option>
+                        <option value="{{ $comarca->id }}" data-provincia="{{ $comarca->provincies_id }}">{{ $comarca->nom}}</option>
                     @endforeach
                 </select>
                 <select class="form-select" id="municipis_id" name="municipis_id" aria-label="municipis_id">
                     @foreach($municipis as $municipi)
-                        <option value="{{ $municipi->id }}" data-comarca="{{ $municipi->comarques_id }}">{{ $municipi->id }}. {{ $municipi->nom}}</option>
+                        <option value="{{ $municipi->id }}" data-comarca="{{ $municipi->comarques_id }}">{{ $municipi->nom}}</option>
                     @endforeach
                 </select>
             </div>
             <div class="input-group mb-3">
                 <select class="form-select" id="tipus_localitzacions" name="tipus_localitzacions" aria-label="tipus_localitzacions">
                     @foreach($tipus_localitzacions as $tipus_localitzacio)
-                        <option value="{{ $tipus_localitzacio->id }}">{{ $tipus_localitzacio->id }}. {{ $tipus_localitzacio->tipus}}</option>
+                        <option value="{{ $tipus_localitzacio->id }}">{{ $tipus_localitzacio->tipus}}</option>
                     @endforeach
                 </select>
             <!-- Incidents -->
                 <select class="form-select ms-1" id="incidents_id" name="incidents_id" aria-label="incidents_id">
                     @foreach($incidents as $incident)
-                        <option value="{{ $incident->id }}">{{ $incident->codi }}. {{ $incident->descripcio}}</option>
+                        <option value="{{ $incident->id }}">{{ $incident->descripcio}}</option>
                     @endforeach
                 </select>
             </div>
@@ -87,7 +94,7 @@
             <div class="input-group mb-3">
                 <textarea form="carta_trucada" name="nota_comuna" id="nota_comuna" cols="200" rows="4" placeholder="Nota Comuna"></textarea>
             </div>
-            <input type="hidden" name="userid" id="userid" value="">
+            <input type="hidden" name="userid" id="userid" value="{{ Auth::user()->id }}">
             <button type="submit" id="enviar" class="btn btn-success btn-sm">Enviar</button>
         </form>
     </div>

@@ -55,25 +55,25 @@
                             <!-- Grafico -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" aria-current="page" href="{{ url('grafico') }}">
-                                    <img src="{{ asset('img/iconos/grafico.png') }}" width="30px">
+                                    <img src="{{ asset('img/iconos/grafico.png') }}" width="30px" title="Gráficos">
                                 </a>
                             </li>
                             <!-- Carta Trucada -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" aria-current="page" href="{{ url('cartaTrucada/create') }}">
-                                    <img src="{{ asset('img/iconos/carta.png') }}" width="30px">
+                                    <img src="{{ asset('img/iconos/carta.png') }}" width="30px" title="Carta de llamada">
                                 </a>
                             </li>
                             <!-- Video -->
                             <li class="nav-item p-2">
                                 <a class="nav-link" aria-current="page" href="#">
-                                    <img src="{{ asset('img/iconos/info_blue.png') }}" width="30px">
+                                    <img src="{{ asset('img/iconos/info_blue.png') }}" width="30px" title="Vídeo">
                                 </a>
                             </li>
                             <!-- Preguntas -->
                             <li class="nav-item dropstart p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('img/iconos/help_blue.png') }}" width="30px">
+                                    <img src="{{ asset('img/iconos/help_blue.png') }}" width="30px" title="Preguntas">
                                 </a>
                                 <ul class="dropdown-menu p-4" aria-labelledby="navbarDropdown" style="width: 400px;">
                                     <p>
@@ -104,14 +104,14 @@
                             @if ($usertype === 3)
                                 <li class="nav-item p-2">
                                     <a class="nav-link" href="{{ url('admin') }}">
-                                        <img src="{{ asset('img/iconos/admin_blue.png') }}" width="30px">
+                                        <img src="{{ asset('img/iconos/admin_blue.png') }}" width="30px" title="Admin">
                                     </a>
                                 </li>
                             @endif
                             <!-- Expedientes -->
                             <li class="nav-item p-2">
                                     <a class="nav-link" href="{{ url('expedientes') }}">
-                                        <img src="{{ asset('img/iconos/expedientes.png') }}" width="30px">
+                                        <img src="{{ asset('img/iconos/expedientes.png') }}" width="30px" title="Expedientes">
                                     </a>
                                 </li>
                             <!-- @if ($usertype === 2) -->
@@ -119,7 +119,7 @@
                             <!-- Idioma -->
                             <li class="nav-item dropdown p-2">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('img/iconos/lan_blue.png')}}" width="30px">
+                                    <img src="{{ asset('img/iconos/lan_blue.png')}}" width="30px" title="Idioma">
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li>
@@ -168,7 +168,6 @@
                                         </li>
                                     </ul>
                                 @endif
-
                             </li>
                         </ul>
                     </div>
