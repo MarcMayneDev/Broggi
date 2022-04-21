@@ -55,13 +55,16 @@
                     </a>
                 </div>
             </div>
-            <div class="col m-4">
+            <div class="col m-3">
                 Hola, me llamo Johnny Bermúdez y estoy estudiando DAW en el Centre d'Estudis Politècnics.<br>Visita mis redes sociales.
                 <div class="col m-3">
                     <a href="https://github.com/johnnydaw2a" role="button" class="me-2">
                         <img src="{{ asset('img/iconos/github.png') }}" width="50px">
                     </a>
-                    <a href="#" role="button">
+                    <a href="mailto:johnny.sbsoria@gmail.com" role="button" class="me-2">
+                        <img src="{{ asset('img/iconos/email_dark.png') }}" width="50px">
+                    </a>
+                    <a href="https://discordapp.com/users/410852547935600640" role="button">
                         <img src="{{ asset('img/iconos/discord.png') }}" width="50px">
                     </a>
                 </div>
