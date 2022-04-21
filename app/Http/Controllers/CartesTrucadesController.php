@@ -82,6 +82,7 @@ class CartesTrucadesController extends Controller
         $cartes_trucades->procedencia_trucada = $request->input('procedencia_trucada');
         $cartes_trucades->origen_trucada = $request->input('origen_trucada');
         $cartes_trucades->nom_trucada = $request->input('nom_trucada');
+        $cartes_trucades->usuaris_id = $request->input('userid');
 
         // Ubicacio
         $cartes_trucades->fora_catalunya = $request->input('fora_catalunya');
@@ -94,7 +95,6 @@ class CartesTrucadesController extends Controller
         $cartes_trucades->descripcio_localitzacio = $request->input('descripcio_localitzacio');
         $cartes_trucades->detall_localitzacio = $request->input('detall_localitzacio');
         $cartes_trucades->altres_ref_localitzacio = $request->input('altres_ref_localitzacio');
-
 
         $cartes_trucades->incidents_id = $request->input('incidents_id');
 

@@ -17,8 +17,10 @@
 
     if (Auth::user()) {
         $usertype = Auth::user()->perfils_id;
+        $userid = Auth::user()->id;
     } else {
         $usertype = 0;
+        $userid = 0;
     }
 ?>
 

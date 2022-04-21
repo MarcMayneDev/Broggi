@@ -87,6 +87,7 @@
             <div class="input-group mb-3">
                 <textarea form="carta_trucada" name="nota_comuna" id="nota_comuna" cols="200" rows="4" placeholder="Nota Comuna"></textarea>
             </div>
+            <input type="hidden" name="userid" id="userid" value="">
             <button type="submit" id="enviar" class="btn btn-success btn-sm">Enviar</button>
         </form>
     </div>
