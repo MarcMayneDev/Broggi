@@ -31,9 +31,7 @@ Route::delete('/admin/{user}', [App\Http\Controllers\UserController::class, 'des
 Route::post('/admin', [App\Http\Controllers\UserController::class, 'store']);
 
 //Expedientes
-Route::get('/expedientes', function () {
-    return view('expedientes');
-});
+Route::get('/expedientes', [App\Http\Controllers\ExpedientsController::class, 'index']);
 Route::post('/expedientes', [App\Http\Controllers\CartesTrucadesController::class, 'store']);
 
 // Registro

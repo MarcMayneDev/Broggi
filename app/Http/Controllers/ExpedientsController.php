@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Expedients;
 use App\Http\Controllers\Controller;
+use App\Models\Estats_expedients;
 use Illuminate\Http\Request;
 
 class ExpedientsController extends Controller
@@ -15,7 +16,13 @@ class ExpedientsController extends Controller
      */
     public function index()
     {
-        //
+        $expedients = Expedients::all();
+        $data['expedients'] = $expedients;
+
+        $estats_expedients = Estats_expedients::All();
+        $data['estats_expedients'] = $estats_expedients;
+
+        return view('expedientes', $data);
     }
 
     /**

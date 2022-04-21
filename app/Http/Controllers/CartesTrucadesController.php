@@ -118,7 +118,7 @@ class CartesTrucadesController extends Controller
         // Cuando hay que pedir los datos personales?
         // Como se genera codi trucada?
         // Que es municipis id trucada?
-        // Si la provincia es de fora de Catalunya, com indico la provincia y el municipi? Si només tenim provincies de catalunya
+        // Si la provincia es de fora de Catalunya, com indico la provincia i el municipi? Si només tenim provincies de catalunya
         $cartes_trucades->codi_trucada = "test_codi";
         $cartes_trucades->dades_personals_id = 1;
         $cartes_trucades->municipis_id_trucada = 1;
