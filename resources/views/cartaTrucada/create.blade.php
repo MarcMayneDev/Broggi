@@ -16,17 +16,19 @@
     <div class="container cartesTrucades">
         <form id="carta_trucada" action="{{action([App\Http\Controllers\CartesTrucadesController::class, 'store'])}}" method="post">
         @csrf
-            <!-- Timer -->
-            <div class="rounded bg-gradient-4 text-dark shadow p-1 text-center mb-3 mt-2 col-1">
-                <div class="" id="contador">
-                    00:00
+            <!-- Data -->
+            <div class="input-group mt-3 mb-3 d-flex">
+                <div class="col-3">
+                    <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
+                </div>
+                <!-- Timer -->
+                <div class="bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1">
+                    <div class="" id="contador">
+                        00:00
+                    </div>
                 </div>
             </div>
             <input type="hidden" id="time" name="time" value="0">
-            <!-- Data -->
-            <div class="input-group mb-3">
-                <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
-            </div>
             <!-- Dades Trucada -->
             <div class="input-group mb-3">
                 <input type="text" class="form-control me-1 col-6" id="nom_trucada" name="nom_trucada" placeholder="Nom trucada">
@@ -65,6 +67,12 @@
                         <option value="{{ $tipus_localitzacio->id }}">{{ $tipus_localitzacio->id }}. {{ $tipus_localitzacio->tipus}}</option>
                     @endforeach
                 </select>
+            <!-- Incidents -->
+                <select class="form-select ms-1" id="incidents_id" name="incidents_id" aria-label="incidents_id">
+                    @foreach($incidents as $incident)
+                        <option value="{{ $incident->id }}">{{ $incident->codi }}. {{ $incident->descripcio}}</option>
+                    @endforeach
+                </select>
             </div>
             <!-- Localització -->
             <div class="input-group mb-3">
@@ -75,14 +83,6 @@
             </div>
             <div class="input-group mb-3">
                 <textarea form="carta_trucada" name="altres_ref_localitzacio" id="altres_ref_localitzacio" cols="200" rows="4" placeholder="Altres referencies localització"></textarea>
-            </div>
-            <!-- Incidents -->
-            <div class="input-group mb-3">
-                <select class="form-select" id="incidents_id" name="incidents_id" aria-label="incidents_id">
-                    @foreach($incidents as $incident)
-                        <option value="{{ $incident->id }}">{{ $incident->codi }}. {{ $incident->descripcio}}</option>
-                    @endforeach
-                </select>
             </div>
             <div class="input-group mb-3">
                 <textarea form="carta_trucada" name="nota_comuna" id="nota_comuna" cols="200" rows="4" placeholder="Nota Comuna"></textarea>

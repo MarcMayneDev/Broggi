@@ -9,7 +9,7 @@
 @endsection
 
 @section('css')
-    <link href="css/login.css" rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')

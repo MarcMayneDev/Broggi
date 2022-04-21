@@ -30,7 +30,7 @@
         @yield('logo_title')
         <title>@yield('title')</title>
         @yield('css')
-        <link rel="stylesheet" href="css/master.css">
+        <link rel="stylesheet" href="{{ asset('css/master.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -101,14 +101,14 @@
                             <!-- Admin -->
                             @if ($usertype === 3)
                                 <li class="nav-item p-2">
-                                    <a class="nav-link" href="admin">
+                                    <a class="nav-link" href="{{ url('admin') }}">
                                         <img src="{{ asset('img/iconos/admin_blue.png') }}" width="30px">
                                     </a>
                                 </li>
                             @endif
                             <!-- Expedientes -->
                             <li class="nav-item p-2">
-                                    <a class="nav-link" href="expedientes">
+                                    <a class="nav-link" href="{{ url('expedientes') }}">
                                         <img src="{{ asset('img/iconos/expedientes.png') }}" width="30px">
                                     </a>
                                 </li>
