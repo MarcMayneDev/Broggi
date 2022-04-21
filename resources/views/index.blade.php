@@ -41,8 +41,21 @@
             <div class="col m-3 d-flex justify-content-center">
                 <img src="img/Marc.jpg" width="200">
             </div>
-            <div class="col m-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est inventore error, maxime hic magnam qui corporis unde minus odit cupiditate sequi voluptates eius voluptatem quasi quae porro facere repudiandae. Vel?</div>
             <div class="col m-3">
+                Buenas, soy Marc Martínez Mayné, estudiante de DAW y futuro Web Developer<br>Adjunto mis redes de contacto y mis trabajos:
+                <div class="col m-4">
+                    <a href="https://github.com/marcmaynedev" role="button" class="me-2">
+                        <img src="{{ asset('img/iconos/github.png') }}" width="50px">
+                    </a>
+                    <a href="mailto:marcmartinez2001@gmail.com" role="button" class="me-2">
+                        <img src="{{ asset('img/iconos/email_dark.png') }}" width="50px">
+                    </a>
+                    <a href="https://discordapp.com/users/219575822896463872" role="button">
+                        <img src="{{ asset('img/iconos/discord.png') }}" width="50px">
+                    </a>
+                </div>
+            </div>
+            <div class="col m-4">
                 Hola, me llamo Johnny Bermúdez y estoy estudiando DAW en el Centre d'Estudis Politècnics.<br>Visita mis redes sociales.
                 <div class="col m-3">
                     <a href="https://github.com/johnnydaw2a" role="button" class="me-2">

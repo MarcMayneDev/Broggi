@@ -9,51 +9,50 @@
 @endsection
 
 @section('css')
-
+    <link href="{{ asset('css/cartatrucada.css') }}" rel="stylesheet">
 @endsection
 
 @section('main')
     <div class="container cartesTrucades">
         <form id="carta_trucada" action="{{action([App\Http\Controllers\CartesTrucadesController::class, 'store'])}}" method="post">
         @csrf
-            <div class="" id="contador">
-                00:00
+            <!-- Timer -->
+            <div class="rounded bg-gradient-4 text-dark shadow p-1 text-center mb-3 mt-2 col-1">
+                <div class="" id="contador">
+                    00:00
+                </div>
             </div>
             <input type="hidden" id="time" name="time" value="0">
+            <!-- Data -->
             <div class="input-group mb-3">
                 <input type="datetime-local" class="form-control" id="data_hora" name="data_hora">
             </div>
+            <!-- Dades Trucada -->
             <div class="input-group mb-3">
-                <input type="tel" class="form-control" id="telefon" name="telefon" placeholder="Telefon">
+                <input type="text" class="form-control me-1 col-6" id="nom_trucada" name="nom_trucada" placeholder="Nom trucada">
+                <input type="tel" class="form-control col-6" id="telefon" name="telefon" placeholder="Telefon">
             </div>
+            <div class="input-group mb-2">
+                <input type="text" class="form-control me-1 col-6" id="procedencia_trucada" name="procedencia_trucada" placeholder="Procedencia trucada">
+                <input type="text" class="form-control col-6" id="origen_trucada" name="origen_trucada" placeholder="Origen trucada">
+            </div>
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" role="switch" name="fora_catalunya" id="fora_catalunya">
+                <label class="form-check-label" for="fora_catalunya">Fora de Catalunya?</label>
+            </div>
+            <!-- Ubicació -->
+            <!-- onSelect, llamar a funcion que calcule que mostrar -->
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="procedencia_trucada" name="procedencia_trucada" placeholder="Procedencia trucada">
-            </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="origen_trucada" name="origen_trucada" placeholder="Origen trucada">
-            </div>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="nom_trucada" name="nom_trucada" placeholder="Nom trucada">
-            </div>
-            <div class="input-group mb-3 text-dark">
-                Fora de Catalunya? <input type="checkbox" name="fora_catalunya" id="fora_catalunya">
-            </div>
-            {{-- onSelect, llamar a funcion que calcule que mostrar --}}
-            <div class="input-group mb-3">
-                <select class="form-select" id="provincies_id" name="provincies_id" aria-label="provincies_id">
+                <select class="form-select me-1" id="provincies_id" name="provincies_id" aria-label="provincies_id">
                     @foreach($provincies as $provincia)
                         <option value="{{ $provincia->id }}">{{ $provincia->id }}. {{ $provincia->nom}}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="input-group mb-3">
-                <select class="form-select" id="comarques_id" name="comarques_id" aria-label="comarques_id">
+                <select class="form-select me-1" id="comarques_id" name="comarques_id" aria-label="comarques_id">
                     @foreach($comarques as $comarca)
                         <option value="{{ $comarca->id }}" data-provincia="{{ $comarca->provincies_id }}">{{ $comarca->id }}. {{ $comarca->nom}}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="input-group mb-3">
                 <select class="form-select" id="municipis_id" name="municipis_id" aria-label="municipis_id">
                     @foreach($municipis as $municipi)
                         <option value="{{ $municipi->id }}" data-comarca="{{ $municipi->comarques_id }}">{{ $municipi->id }}. {{ $municipi->nom}}</option>
@@ -67,6 +66,7 @@
                     @endforeach
                 </select>
             </div>
+            <!-- Localització -->
             <div class="input-group mb-3">
                 <textarea form="carta_trucada" name="descripcio_localitzacio" id="descripcio_localitzacio" cols="200" rows="4" placeholder="Descripcio localització"></textarea>
             </div>
@@ -76,12 +76,16 @@
             <div class="input-group mb-3">
                 <textarea form="carta_trucada" name="altres_ref_localitzacio" id="altres_ref_localitzacio" cols="200" rows="4" placeholder="Altres referencies localització"></textarea>
             </div>
+            <!-- Incidents -->
             <div class="input-group mb-3">
                 <select class="form-select" id="incidents_id" name="incidents_id" aria-label="incidents_id">
                     @foreach($incidents as $incident)
                         <option value="{{ $incident->id }}">{{ $incident->codi }}. {{ $incident->descripcio}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="input-group mb-3">
+                <textarea form="carta_trucada" name="nota_comuna" id="nota_comuna" cols="200" rows="4" placeholder="Nota Comuna"></textarea>
             </div>
             <button type="submit" id="enviar" class="btn btn-success btn-sm">Enviar</button>
         </form>
