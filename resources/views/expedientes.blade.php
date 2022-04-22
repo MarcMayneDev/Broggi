@@ -9,7 +9,7 @@
 @endsection
 
 @section('css')
-
+    <link rel="stylesheet" href="{{ asset('css/expedientes.css') }}">
 @endsection
 
 @section('main')
@@ -32,7 +32,11 @@
                             <td>{{ $expedient->data_ultima_modificacio; }}</td>
                             @foreach($estats_expedients as $estat_expedient)
                                 @if($estat_expedient->id == $expedient->estats_expedients_id)
-                                    <td>{{ $estat_expedient->estat}}</td>
+                                    <td>
+                                        <div class="estat{{ $estat_expedient->id }}">
+                                            {{ $estat_expedient->estat}}
+                                        </div>
+                                    </td>
                                 @endif
                             @endforeach
                         </tr>

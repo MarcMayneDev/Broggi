@@ -102,9 +102,9 @@ class CartesTrucadesController extends Controller
             $cartes_trucades->fora_catalunya = $request->input('fora_catalunya');
         } else{
             $cartes_trucades->fora_catalunya = "0";
+            $cartes_trucades->provincies_id = $request->input('provincies_id');
+            $cartes_trucades->municipis_id = $request->input('municipis_id');
         }
-        $cartes_trucades->provincies_id = $request->input('provincies_id');
-        $cartes_trucades->municipis_id = $request->input('municipis_id');
 
         $cartes_trucades->tipus_localitzacions_id = $request->input('tipus_localitzacions');
         $cartes_trucades->descripcio_localitzacio = $request->input('descripcio_localitzacio');
@@ -132,7 +132,6 @@ class CartesTrucadesController extends Controller
             // $request->session()->flash('error', $message);
             return $ex;
         }
-        return $expedients->id;
         return view('index');
     }
 

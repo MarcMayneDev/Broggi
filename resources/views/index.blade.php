@@ -57,7 +57,7 @@
             </div>
             <div class="col m-3">
                 Hola, me llamo Johnny Bermúdez y estoy estudiando DAW en el Centre d'Estudis Politècnics.<br>Visita mis redes sociales.
-                <div class="col m-3">
+                <div class="col m-4">
                     <a href="https://github.com/johnnydaw2a" role="button" class="me-2">
                         <img src="{{ asset('img/iconos/github.png') }}" width="50px">
                     </a>
