@@ -164,12 +164,6 @@
                                                 <strong>Iniciar sesión</strong>
                                             </a>
                                         </li>
-                                        <hr>
-                                        <li>
-                                            <a href="{{ url('registro') }}" class="text-center" style="text-decoration: none;">
-                                                Crear una cuenta
-                                            </a>
-                                        </li>
                                     </ul>
                                 @endif
                             </li>

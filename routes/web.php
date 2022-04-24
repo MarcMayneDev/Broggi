@@ -35,10 +35,10 @@ Route::get('/expedientes', [App\Http\Controllers\ExpedientsController::class, 'i
 Route::post('/expedientes', [App\Http\Controllers\CartesTrucadesController::class, 'store']);
 
 // Registro
-Route::get('/registro', function () {
-    return view('registro');
-})->name('registro');
-Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);
+// Route::get('/registro', function () {
+//     return view('registro');
+// })->name('registro');
+// Route::post('/registro', [App\Http\Controllers\UserController::class, 'store']);
 
 // Login
 Route::get('/login', function () {
