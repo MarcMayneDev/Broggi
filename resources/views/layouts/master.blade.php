@@ -172,6 +172,8 @@
                 </div>
             </nav>
         </header>
-        @yield('main')
+        <div id="app">
+            @yield('main')
+        </div>
     </body>
 </html>
