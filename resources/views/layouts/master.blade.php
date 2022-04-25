@@ -40,7 +40,6 @@
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-        <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body class="h-100" style="background-color: #A5B2F0">
         <header>
@@ -176,4 +175,5 @@
             @yield('main')
         </div>
     </body>
+    <script src="{{ asset('js/app.js') }}"></script>
 </html>

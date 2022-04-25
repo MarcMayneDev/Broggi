@@ -20,7 +20,16 @@ $date = $fecha . "T" . $hora;
 @endsection
 
 @section('main')
-    <div class="container cartesTrucades">
+    <carta-trucades
+        :date="{{ json_encode($date) }}"
+        :provincies="{{ json_encode($provincies) }}"
+        :comarques="{{ json_encode($comarques) }}"
+        :municipis="{{ json_encode($municipis) }}"
+        :tipus_localitzacions="{{ json_encode($tipus_localitzacions) }}"
+        :incidents="{{ json_encode($incidents) }}"
+        :user_id="{{ json_encode(Auth::user()->id) }}"
+        />
+    {{-- <div class="container cartesTrucades">
         <form id="carta_trucada" action="{{action([App\Http\Controllers\CartesTrucadesController::class, 'store'])}}" method="post">
         @csrf
             <!-- Data -->
@@ -136,9 +145,9 @@ $date = $fecha . "T" . $hora;
             <input type="hidden" name="userid" id="userid" value="{{ Auth::user()->id }}">
             <button type="submit" id="enviar" class="btn btn-success btn-sm">Enviar</button>
         </form>
-    </div>
+    </div> --}}
 
-    <script>
+    {{-- <script>
         const contador = document.getElementById("contador");
         const enviar = document.getElementById("enviar");
         const time = document.getElementById("time");
@@ -158,5 +167,5 @@ $date = $fecha . "T" . $hora;
         enviar.addEventListener("click", function() {
             clearInterval(tiempollamada);
         })
-    </script>
+    </script> --}}
 @endsection

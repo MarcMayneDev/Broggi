@@ -5357,6 +5357,137 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CartaComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CartaComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['date', 'provincies', 'comarques', 'municipis', 'tipus_localitzacions', 'incidents', 'user_id'],
+  data: function data() {
+    return {
+      seconds: 0,
+      minutes: 0
+      /*  provincies: [] */
+
+    };
+  },
+  methods: {
+    createCartaTrucada: function createCartaTrucada() {
+      console.log("ToDo");
+    },
+
+    /* getProvincies() {
+        let me = this;
+        axios.get('/provincies')
+            .then((response) => {
+                me.provincies = response.data;
+            })
+            .catch((error) => {
+                console.log("Ha habido un error");
+            })
+    }, */
+    setContador: function setContador() {
+      var _this = this;
+
+      if (this.seconds) {
+        console.log("pasa por here");
+        setInterval(function () {
+          _this.seconds++;
+
+          if (_this.seconds > 59) {
+            _this.minutes++;
+            _this.seconds = 0;
+          }
+        }, 1000);
+      }
+    }
+  },
+  created: function created() {
+    this.setContador();
+    /*
+    this.getProvincies();
+    this.date = new Date().toISOString();
+    */
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -5417,6 +5548,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
+Vue.component('carta-trucades', (__webpack_require__(/*! ./components/CartaComponent.vue */ "./resources/js/components/CartaComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -5449,6 +5581,7 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseUrl = '/Broggi/public/api/';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -27924,6 +28057,45 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/js/components/CartaComponent.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/CartaComponent.vue ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CartaComponent_vue_vue_type_template_id_1027d9e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CartaComponent.vue?vue&type=template&id=1027d9e7& */ "./resources/js/components/CartaComponent.vue?vue&type=template&id=1027d9e7&");
+/* harmony import */ var _CartaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CartaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/CartaComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CartaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CartaComponent_vue_vue_type_template_id_1027d9e7___WEBPACK_IMPORTED_MODULE_0__.render,
+  _CartaComponent_vue_vue_type_template_id_1027d9e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CartaComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -27963,6 +28135,22 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/CartaComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/CartaComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CartaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CartaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CartaComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CartaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -27979,6 +28167,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/CartaComponent.vue?vue&type=template&id=1027d9e7&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/CartaComponent.vue?vue&type=template&id=1027d9e7& ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CartaComponent_vue_vue_type_template_id_1027d9e7___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CartaComponent_vue_vue_type_template_id_1027d9e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CartaComponent_vue_vue_type_template_id_1027d9e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CartaComponent.vue?vue&type=template&id=1027d9e7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CartaComponent.vue?vue&type=template&id=1027d9e7&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -27992,6 +28197,337 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ExampleComponent.vue?vue&type=template&id=299e239e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CartaComponent.vue?vue&type=template&id=1027d9e7&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CartaComponent.vue?vue&type=template&id=1027d9e7& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container cartesTrucades" }, [
+    _c("div", { staticClass: "input-group mt-3 mb-3 d-flex" }, [
+      _c("div", { staticClass: "col-3" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "datetime-local", id: "data_hora", name: "data_hora" },
+          domProps: { value: _vm.date },
+        }),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1",
+        },
+        [
+          _c("div", { attrs: { id: "contador" } }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(String(_vm.minutes).padStart(2, "0")) +
+                ":" +
+                _vm._s(String(_vm.seconds).padStart(2, "0")) +
+                "\n            "
+            ),
+          ]),
+        ]
+      ),
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-group mb-3" }, [
+      _c(
+        "select",
+        {
+          staticClass: "form-select me-1",
+          attrs: {
+            id: "provincies_id",
+            name: "provincies_id",
+            "aria-label": "provincies_id",
+          },
+        },
+        _vm._l(_vm.provincies, function (provincia) {
+          return _c("option", { domProps: { value: provincia.id } }, [
+            _vm._v(_vm._s(provincia.nom)),
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "form-select me-1",
+          attrs: {
+            id: "comarques_id",
+            name: "comarques_id",
+            "aria-label": "comarques_id",
+          },
+        },
+        _vm._l(_vm.comarques, function (comarca) {
+          return _c(
+            "option",
+            {
+              attrs: { "data-provincia": comarca.provincies_id },
+              domProps: { value: comarca.id },
+            },
+            [_vm._v(_vm._s(comarca.nom))]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "form-select",
+          attrs: {
+            id: "municipis_id",
+            name: "municipis_id",
+            "aria-label": "municipis_id",
+          },
+        },
+        _vm._l(_vm.municipis, function (municipi) {
+          return _c(
+            "option",
+            {
+              attrs: { "data-comarca": municipi.comarques_id },
+              domProps: { value: municipi.id },
+            },
+            [_vm._v(_vm._s(municipi.nom))]
+          )
+        }),
+        0
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-group mb-3" }, [
+      _c(
+        "select",
+        {
+          staticClass: "form-select",
+          attrs: {
+            id: "tipus_localitzacions",
+            name: "tipus_localitzacions",
+            "aria-label": "tipus_localitzacions",
+          },
+        },
+        _vm._l(_vm.tipus_localitzacions, function (tipus_localitzacio) {
+          return _c("option", { domProps: { value: tipus_localitzacio.id } }, [
+            _vm._v(_vm._s(tipus_localitzacio.tipus)),
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          staticClass: "form-select ms-1",
+          attrs: {
+            id: "incidents_id",
+            name: "incidents_id",
+            "aria-label": "incidents_id",
+          },
+        },
+        _vm._l(_vm.incidents, function (incident) {
+          return _c("option", { domProps: { value: incident.id } }, [
+            _vm._v(_vm._s(incident.descripcio)),
+          ])
+        }),
+        0
+      ),
+    ]),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _vm._m(5),
+    _vm._v(" "),
+    _vm._m(6),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { type: "hidden", name: "userid", id: "userid" },
+      domProps: { value: _vm.user_id },
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-success btn-sm",
+        attrs: { type: "submit", id: "enviar" },
+        on: { click: _vm.createCartaTrucada },
+      },
+      [_vm._v("Enviar")]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-3" }, [
+      _c("input", {
+        staticClass: "form-control me-1 col-6",
+        attrs: {
+          type: "text",
+          id: "nom_trucada",
+          name: "nom_trucada",
+          placeholder: "Nom trucada",
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control col-6",
+        attrs: {
+          type: "tel",
+          id: "telefon",
+          name: "telefon",
+          placeholder: "Telefon",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-2" }, [
+      _c("input", {
+        staticClass: "form-control me-1 col-6",
+        attrs: {
+          type: "text",
+          id: "procedencia_trucada",
+          name: "procedencia_trucada",
+          placeholder: "Procedencia trucada",
+        },
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control col-6",
+        attrs: {
+          type: "text",
+          id: "origen_trucada",
+          name: "origen_trucada",
+          placeholder: "Origen trucada",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-check form-switch mb-2" }, [
+      _c("input", {
+        staticClass: "form-check-input",
+        attrs: {
+          type: "checkbox",
+          role: "switch",
+          name: "fora_catalunya",
+          value: "1",
+          id: "fora_catalunya",
+        },
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "form-check-label", attrs: { for: "fora_catalunya" } },
+        [_vm._v("Fora de Catalunya?")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-3" }, [
+      _c("textarea", {
+        attrs: {
+          form: "carta_trucada",
+          name: "descripcio_localitzacio",
+          id: "descripcio_localitzacio",
+          cols: "200",
+          rows: "4",
+          placeholder: "Descripcio localització",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-3" }, [
+      _c("textarea", {
+        attrs: {
+          form: "carta_trucada",
+          name: "detall_localitzacio",
+          id: "detall_localitzacio",
+          cols: "200",
+          rows: "4",
+          placeholder: "Detall localització",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-3" }, [
+      _c("textarea", {
+        attrs: {
+          form: "carta_trucada",
+          name: "altres_ref_localitzacio",
+          id: "altres_ref_localitzacio",
+          cols: "200",
+          rows: "4",
+          placeholder: "Altres referencies localització",
+        },
+      }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group mb-3" }, [
+      _c("textarea", {
+        attrs: {
+          form: "carta_trucada",
+          name: "nota_comuna",
+          id: "nota_comuna",
+          cols: "200",
+          rows: "4",
+          placeholder: "Nota Comuna",
+        },
+      }),
+    ])
+  },
+]
+render._withStripped = true
+
 
 
 /***/ }),
