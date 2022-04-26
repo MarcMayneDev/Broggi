@@ -5436,12 +5436,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['date', 'provincies', 'comarques', 'municipis', 'tipus_localitzacions', 'incidents', 'user_id'],
   data: function data() {
     return {
       seconds: 0,
-      minutes: 0
+      minutes: 0,
+      time: 0,
+      isRunning: false,
+      interval: null
       /*  provincies: [] */
 
     };
@@ -5461,24 +5501,48 @@ __webpack_require__.r(__webpack_exports__);
                 console.log("Ha habido un error");
             })
     }, */
-    setContador: function setContador() {
-      var _this = this;
-
-      if (this.seconds) {
-        console.log("pasa por here");
-        setInterval(function () {
-          _this.seconds++;
-
-          if (_this.seconds > 59) {
-            _this.minutes++;
-            _this.seconds = 0;
-          }
-        }, 1000);
+    toggleTimer: function toggleTimer() {
+      if (this.isRunning) {
+        clearInterval(this.interval);
+        console.log('timer stops');
+      } else {
+        this.interval = setInterval(this.incrementTime, 1000);
       }
-    }
+
+      this.isRunning = !this.isRunning;
+    },
+    incrementTime: function incrementTime() {
+      this.time = parseInt(this.time) + 1;
+      this.minutes = Math.floor(this.time / 60);
+      this.seconds = this.time - this.minutes * 60;
+
+      if (this.minutes < 10) {
+        this.minutes = "0" + parseInt(this.minutes);
+      }
+
+      if (this.seconds < 10) {
+        this.seconds = "0" + parseInt(this.seconds);
+      }
+    },
+    clearTime: function clearTime() {
+      this.isRunning = !this.isRunning;
+    } // setContador() {
+    //     if (this.seconds) {
+    //         console.log("pasa por here");
+    //         setInterval(() => {
+    //             this.seconds++;
+    //             if (this.seconds > 59) {
+    //                 this.minutes++;
+    //                 this.seconds = 0;
+    //             }
+    //         }, 1000);
+    //     }
+    // },
+
   },
   created: function created() {
-    this.setContador();
+    // this.setContador();
+    this.toggleTimer();
     /*
     this.getProvincies();
     this.date = new Date().toISOString();
@@ -28237,9 +28301,7 @@ var render = function () {
           _c("div", { attrs: { id: "contador" } }, [
             _vm._v(
               "\n                " +
-                _vm._s(String(_vm.minutes).padStart(2, "0")) +
-                ":" +
-                _vm._s(String(_vm.seconds).padStart(2, "0")) +
+                _vm._s(_vm.minutes + ":" + _vm.seconds) +
                 "\n            "
             ),
           ]),
@@ -28247,123 +28309,206 @@ var render = function () {
       ),
     ]),
     _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
+    _c("div", { staticClass: "input-group mb-2" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "municipis_id_trucada" },
+          },
+          [_vm._v("Municipi trucant:")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-select",
+            attrs: {
+              id: "municipis_id_trucada",
+              name: "municipis_id_trucada",
+              "aria-label": "municipis_id_trucada",
+            },
+          },
+          _vm._l(_vm.municipis, function (municipi) {
+            return _c(
+              "option",
+              {
+                attrs: { "data-comarca": municipi.comarques_id },
+                domProps: { value: municipi.id },
+              },
+              [_vm._v(_vm._s(municipi.nom))]
+            )
+          }),
+          0
+        ),
+      ]),
+    ]),
     _vm._v(" "),
     _vm._m(2),
     _vm._v(" "),
-    _c("div", { staticClass: "input-group mb-3" }, [
-      _c(
-        "select",
-        {
-          staticClass: "form-select me-1",
-          attrs: {
-            id: "provincies_id",
-            name: "provincies_id",
-            "aria-label": "provincies_id",
-          },
-        },
-        _vm._l(_vm.provincies, function (provincia) {
-          return _c("option", { domProps: { value: provincia.id } }, [
-            _vm._v(_vm._s(provincia.nom)),
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass: "form-select me-1",
-          attrs: {
-            id: "comarques_id",
-            name: "comarques_id",
-            "aria-label": "comarques_id",
-          },
-        },
-        _vm._l(_vm.comarques, function (comarca) {
-          return _c(
-            "option",
-            {
-              attrs: { "data-provincia": comarca.provincies_id },
-              domProps: { value: comarca.id },
-            },
-            [_vm._v(_vm._s(comarca.nom))]
-          )
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass: "form-select",
-          attrs: {
-            id: "municipis_id",
-            name: "municipis_id",
-            "aria-label": "municipis_id",
-          },
-        },
-        _vm._l(_vm.municipis, function (municipi) {
-          return _c(
-            "option",
-            {
-              attrs: { "data-comarca": municipi.comarques_id },
-              domProps: { value: municipi.id },
-            },
-            [_vm._v(_vm._s(municipi.nom))]
-          )
-        }),
-        0
-      ),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "input-group mb-3" }, [
-      _c(
-        "select",
-        {
-          staticClass: "form-select",
-          attrs: {
-            id: "tipus_localitzacions",
-            name: "tipus_localitzacions",
-            "aria-label": "tipus_localitzacions",
-          },
-        },
-        _vm._l(_vm.tipus_localitzacions, function (tipus_localitzacio) {
-          return _c("option", { domProps: { value: tipus_localitzacio.id } }, [
-            _vm._v(_vm._s(tipus_localitzacio.tipus)),
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass: "form-select ms-1",
-          attrs: {
-            id: "incidents_id",
-            name: "incidents_id",
-            "aria-label": "incidents_id",
-          },
-        },
-        _vm._l(_vm.incidents, function (incident) {
-          return _c("option", { domProps: { value: incident.id } }, [
-            _vm._v(_vm._s(incident.descripcio)),
-          ])
-        }),
-        0
-      ),
-    ]),
-    _vm._v(" "),
     _vm._m(3),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-group mb-3" }, [
+      _c("div", { staticClass: "col-4" }, [
+        _c(
+          "label",
+          { staticClass: "form-select-label", attrs: { for: "provincies_id" } },
+          [_vm._v("Provincia emergencia:")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-select me-1",
+            attrs: {
+              id: "provincies_id",
+              name: "provincies_id",
+              "aria-label": "provincies_id",
+            },
+          },
+          _vm._l(_vm.provincies, function (provincia) {
+            return _c("option", { domProps: { value: provincia.id } }, [
+              _vm._v(_vm._s(provincia.nom)),
+            ])
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4" }, [
+        _c(
+          "label",
+          { staticClass: "form-select-label", attrs: { for: "comarques_id" } },
+          [_vm._v("Comarca emergencia:")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-select me-1",
+            attrs: {
+              id: "comarques_id",
+              name: "comarques_id",
+              "aria-label": "comarques_id",
+            },
+          },
+          _vm._l(_vm.comarques, function (comarca) {
+            return _c(
+              "option",
+              {
+                attrs: { "data-provincia": comarca.provincies_id },
+                domProps: { value: comarca.id },
+              },
+              [_vm._v(_vm._s(comarca.nom))]
+            )
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-4" }, [
+        _c(
+          "label",
+          { staticClass: "form-select-label", attrs: { for: "municipis_id" } },
+          [_vm._v("Municipi emergencia:")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-select",
+            attrs: {
+              id: "municipis_id",
+              name: "municipis_id",
+              "aria-label": "municipis_id",
+            },
+          },
+          _vm._l(_vm.municipis, function (municipi) {
+            return _c(
+              "option",
+              {
+                attrs: { "data-comarca": municipi.comarques_id },
+                domProps: { value: municipi.id },
+              },
+              [_vm._v(_vm._s(municipi.nom))]
+            )
+          }),
+          0
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-group mb-3" }, [
+      _c("div", { staticClass: "col-6" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "tipus_localitzacions" },
+          },
+          [_vm._v("Tipus emergencia:")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-select",
+            attrs: {
+              id: "tipus_localitzacions",
+              name: "tipus_localitzacions",
+              "aria-label": "tipus_localitzacions",
+            },
+          },
+          _vm._l(_vm.tipus_localitzacions, function (tipus_localitzacio) {
+            return _c(
+              "option",
+              { domProps: { value: tipus_localitzacio.id } },
+              [_vm._v(_vm._s(tipus_localitzacio.tipus))]
+            )
+          }),
+          0
+        ),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6" }, [
+        _c(
+          "label",
+          { staticClass: "form-select-label", attrs: { for: "incidents_id" } },
+          [_vm._v("Tipus incident:")]
+        ),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            staticClass: "form-select ms-1",
+            attrs: {
+              id: "incidents_id",
+              name: "incidents_id",
+              "aria-label": "incidents_id",
+            },
+          },
+          _vm._l(_vm.incidents, function (incident) {
+            return _c("option", { domProps: { value: incident.id } }, [
+              _vm._v(_vm._s(incident.descripcio)),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]),
     _vm._v(" "),
     _vm._m(4),
     _vm._v(" "),
     _vm._m(5),
     _vm._v(" "),
     _vm._m(6),
+    _vm._v(" "),
+    _vm._m(7),
     _vm._v(" "),
     _c("input", {
       attrs: { type: "hidden", name: "userid", id: "userid" },
@@ -28375,7 +28520,7 @@ var render = function () {
       {
         staticClass: "btn btn-success btn-sm",
         attrs: { type: "submit", id: "enviar" },
-        on: { click: _vm.createCartaTrucada },
+        on: { click: [_vm.toggleTimer, _vm.createCartaTrucada] },
       },
       [_vm._v("Enviar")]
     ),
@@ -28386,9 +28531,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
+    return _c("div", { staticClass: "col-4" }, [
+      _c(
+        "label",
+        { staticClass: "form-check-label", attrs: { for: "nom_trucada" } },
+        [_vm._v("Nom trucant:")]
+      ),
+      _vm._v(" "),
       _c("input", {
-        staticClass: "form-control me-1 col-6",
+        staticClass: "form-control",
         attrs: {
           type: "text",
           id: "nom_trucada",
@@ -28396,9 +28547,21 @@ var staticRenderFns = [
           placeholder: "Nom trucada",
         },
       }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c(
+        "label",
+        { staticClass: "form-check-label", attrs: { for: "telefon" } },
+        [_vm._v("Telefon:")]
+      ),
       _vm._v(" "),
       _c("input", {
-        staticClass: "form-control col-6",
+        staticClass: "form-control",
         attrs: {
           type: "tel",
           id: "telefon",
@@ -28413,25 +28576,47 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "input-group mb-2" }, [
-      _c("input", {
-        staticClass: "form-control me-1 col-6",
-        attrs: {
-          type: "text",
-          id: "procedencia_trucada",
-          name: "procedencia_trucada",
-          placeholder: "Procedencia trucada",
-        },
-      }),
+      _c("div", { staticClass: "col-6" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "procedencia_trucada" },
+          },
+          [_vm._v("Procedencia trucada:")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control me-1 col-6",
+          attrs: {
+            type: "text",
+            id: "procedencia_trucada",
+            name: "procedencia_trucada",
+            placeholder: "Procedencia trucada",
+          },
+        }),
+      ]),
       _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control col-6",
-        attrs: {
-          type: "text",
-          id: "origen_trucada",
-          name: "origen_trucada",
-          placeholder: "Origen trucada",
-        },
-      }),
+      _c("div", { staticClass: "col-6" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "origen_trucada" },
+          },
+          [_vm._v("Origen trucada:")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control col-6",
+          attrs: {
+            type: "text",
+            id: "origen_trucada",
+            name: "origen_trucada",
+            placeholder: "Origen trucada",
+          },
+        }),
+      ]),
     ])
   },
   function () {
@@ -28461,7 +28646,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
+    return _c("div", { staticClass: "input-group mb-2" }, [
+      _c(
+        "label",
+        {
+          staticClass: "form-select-label",
+          attrs: { for: "descripcio_localitzacio" },
+        },
+        [_vm._v("Descripció localizació incident:")]
+      ),
+      _vm._v(" "),
       _c("textarea", {
         attrs: {
           form: "carta_trucada",
@@ -28478,7 +28672,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
+    return _c("div", { staticClass: "input-group mb-2" }, [
+      _c(
+        "label",
+        {
+          staticClass: "form-select-label",
+          attrs: { for: "detall_localitzacio" },
+        },
+        [_vm._v("Detalls localizació incident:")]
+      ),
+      _vm._v(" "),
       _c("textarea", {
         attrs: {
           form: "carta_trucada",
@@ -28495,7 +28698,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
+    return _c("div", { staticClass: "input-group mb-2" }, [
+      _c(
+        "label",
+        {
+          staticClass: "form-select-label",
+          attrs: { for: "altres_ref_localitzacio" },
+        },
+        [_vm._v("Altres referencies localizació incident:")]
+      ),
+      _vm._v(" "),
       _c("textarea", {
         attrs: {
           form: "carta_trucada",
@@ -28512,7 +28724,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-3" }, [
+    return _c("div", { staticClass: "input-group mb-2" }, [
+      _c(
+        "label",
+        { staticClass: "form-select-label", attrs: { for: "nota_comuna" } },
+        [_vm._v("Nota comuna:")]
+      ),
+      _vm._v(" "),
       _c("textarea", {
         attrs: {
           form: "carta_trucada",
