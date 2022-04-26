@@ -5479,6 +5479,25 @@ __webpack_require__.r(__webpack_exports__);
   props: ['date', 'provincies', 'comarques', 'municipis', 'tipus_localitzacions', 'incidents', 'user_id'],
   data: function data() {
     return {
+      cartes_trucades: {
+        temps_trucada: '',
+        data_hora: '',
+        telefon: '',
+        procedencia_trucada: '',
+        origen_trucada: '',
+        nom_trucada: '',
+        usuaris_id: '',
+        nota_comuna: '',
+        fora_catalunya: '',
+        provincies_id: '',
+        municipis_id: '',
+        tipus_localitzacions_id: '',
+        descripcio_localitzacio: '',
+        detall_localitzacio: '',
+        altres_ref_localitzacio: '',
+        expedients_id: '',
+        incidents_id: ''
+      },
       seconds: 0,
       minutes: 0,
       time: 0,
@@ -5530,7 +5549,8 @@ __webpack_require__.r(__webpack_exports__);
       this.isRunning = !this.isRunning;
     },
     submit: function submit() {
-      axios.post();
+      var me = this;
+      axios.post('/cartaTrucada/create', me.cartes_trucades).then(function (response) {});
     } // setContador() {
     //     if (this.seconds) {
     //         console.log("pasa por here");
@@ -28320,9 +28340,79 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "input-group mb-2" }, [
-        _vm._m(0),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "nom_trucada" } },
+            [_vm._v("Nom trucant:")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cartes_trucades.nom_trucada,
+                expression: "cartes_trucades.nom_trucada",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              id: "nom_trucada",
+              name: "nom_trucada",
+              placeholder: "Nom trucada",
+            },
+            domProps: { value: _vm.cartes_trucades.nom_trucada },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.cartes_trucades,
+                  "nom_trucada",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "label",
+            { staticClass: "form-check-label", attrs: { for: "telefon" } },
+            [_vm._v("Telefon:")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cartes_trucades.telefon,
+                expression: "cartes_trucades.telefon",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "tel",
+              id: "telefon",
+              name: "telefon",
+              placeholder: "Telefon",
+            },
+            domProps: { value: _vm.cartes_trucades.telefon },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.cartes_trucades, "telefon", $event.target.value)
+              },
+            },
+          }),
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-4" }, [
           _c(
@@ -28337,11 +28427,36 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cartes_trucades.municipis_id_trucada,
+                  expression: "cartes_trucades.municipis_id_trucada",
+                },
+              ],
               staticClass: "form-select",
               attrs: {
                 id: "municipis_id_trucada",
                 name: "municipis_id_trucada",
                 "aria-label": "municipis_id_trucada",
+              },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cartes_trucades,
+                    "municipis_id_trucada",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
               },
             },
             _vm._l(_vm.municipis, function (municipi) {
@@ -28359,9 +28474,151 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "input-group mb-2" }, [
+        _c("div", { staticClass: "col-6" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "procedencia_trucada" },
+            },
+            [_vm._v("Procedencia trucada:")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cartes_trucades.procedencia_trucada,
+                expression: "cartes_trucades.procedencia_trucada",
+              },
+            ],
+            staticClass: "form-control me-1 col-6",
+            attrs: {
+              type: "text",
+              id: "procedencia_trucada",
+              name: "procedencia_trucada",
+              placeholder: "Procedencia trucada",
+            },
+            domProps: { value: _vm.cartes_trucades.procedencia_trucada },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.cartes_trucades,
+                  "procedencia_trucada",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "origen_trucada" },
+            },
+            [_vm._v("Origen trucada:")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cartes_trucades.origen_trucada,
+                expression: "cartes_trucades.origen_trucada",
+              },
+            ],
+            staticClass: "form-control col-6",
+            attrs: {
+              type: "text",
+              id: "origen_trucada",
+              name: "origen_trucada",
+              placeholder: "Origen trucada",
+            },
+            domProps: { value: _vm.cartes_trucades.origen_trucada },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.cartes_trucades,
+                  "origen_trucada",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+      ]),
       _vm._v(" "),
-      _vm._m(3),
+      _c("div", { staticClass: "form-check form-switch mb-2" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.cartes_trucades.fora_catalunya,
+              expression: "cartes_trucades.fora_catalunya",
+            },
+          ],
+          staticClass: "form-check-input",
+          attrs: {
+            type: "checkbox",
+            role: "switch",
+            name: "fora_catalunya",
+            value: "1",
+            id: "fora_catalunya",
+          },
+          domProps: {
+            checked: Array.isArray(_vm.cartes_trucades.fora_catalunya)
+              ? _vm._i(_vm.cartes_trucades.fora_catalunya, "1") > -1
+              : _vm.cartes_trucades.fora_catalunya,
+          },
+          on: {
+            change: function ($event) {
+              var $$a = _vm.cartes_trucades.fora_catalunya,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = "1",
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 &&
+                    _vm.$set(
+                      _vm.cartes_trucades,
+                      "fora_catalunya",
+                      $$a.concat([$$v])
+                    )
+                } else {
+                  $$i > -1 &&
+                    _vm.$set(
+                      _vm.cartes_trucades,
+                      "fora_catalunya",
+                      $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                    )
+                }
+              } else {
+                _vm.$set(_vm.cartes_trucades, "fora_catalunya", $$c)
+              }
+            },
+          },
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "form-check-label", attrs: { for: "fora_catalunya" } },
+          [_vm._v("Fora de Catalunya?")]
+        ),
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "input-group mb-3" }, [
         _c("div", { staticClass: "col-4" }, [
@@ -28377,11 +28634,36 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cartes_trucades.provincies_id,
+                  expression: "cartes_trucades.provincies_id",
+                },
+              ],
               staticClass: "form-select me-1",
               attrs: {
                 id: "provincies_id",
                 name: "provincies_id",
                 "aria-label": "provincies_id",
+              },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cartes_trucades,
+                    "provincies_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
               },
             },
             _vm._l(_vm.provincies, function (provincia) {
@@ -28406,11 +28688,36 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cartes_trucades.comarques_id,
+                  expression: "cartes_trucades.comarques_id",
+                },
+              ],
               staticClass: "form-select me-1",
               attrs: {
                 id: "comarques_id",
                 name: "comarques_id",
                 "aria-label": "comarques_id",
+              },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cartes_trucades,
+                    "comarques_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
               },
             },
             _vm._l(_vm.comarques, function (comarca) {
@@ -28440,11 +28747,36 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cartes_trucades.municipis_id,
+                  expression: "cartes_trucades.municipis_id",
+                },
+              ],
               staticClass: "form-select",
               attrs: {
                 id: "municipis_id",
                 name: "municipis_id",
                 "aria-label": "municipis_id",
+              },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cartes_trucades,
+                    "municipis_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
               },
             },
             _vm._l(_vm.municipis, function (municipi) {
@@ -28476,11 +28808,36 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cartes_trucades.tipus_localitzacions_id,
+                  expression: "cartes_trucades.tipus_localitzacions_id",
+                },
+              ],
               staticClass: "form-select",
               attrs: {
                 id: "tipus_localitzacions",
                 name: "tipus_localitzacions",
                 "aria-label": "tipus_localitzacions",
+              },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cartes_trucades,
+                    "tipus_localitzacions_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
               },
             },
             _vm._l(_vm.tipus_localitzacions, function (tipus_localitzacio) {
@@ -28507,11 +28864,36 @@ var render = function () {
           _c(
             "select",
             {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.cartes_trucades.incidents_id,
+                  expression: "cartes_trucades.incidents_id",
+                },
+              ],
               staticClass: "form-select ms-1",
               attrs: {
                 id: "incidents_id",
                 name: "incidents_id",
                 "aria-label": "incidents_id",
+              },
+              on: {
+                change: function ($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function (o) {
+                      return o.selected
+                    })
+                    .map(function (o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.cartes_trucades,
+                    "incidents_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                },
               },
             },
             _vm._l(_vm.incidents, function (incident) {
@@ -28524,13 +28906,170 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _vm._m(4),
+      _c("div", { staticClass: "input-group mb-2" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "descripcio_localitzacio" },
+          },
+          [_vm._v("Descripció localizació incident:")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.cartes_trucades.descripcio_localitzacio,
+              expression: "cartes_trucades.descripcio_localitzacio",
+            },
+          ],
+          attrs: {
+            form: "carta_trucada",
+            name: "descripcio_localitzacio",
+            id: "descripcio_localitzacio",
+            cols: "200",
+            rows: "4",
+            placeholder: "Descripcio localització",
+          },
+          domProps: { value: _vm.cartes_trucades.descripcio_localitzacio },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.cartes_trucades,
+                "descripcio_localitzacio",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
       _vm._v(" "),
-      _vm._m(5),
+      _c("div", { staticClass: "input-group mb-2" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "detall_localitzacio" },
+          },
+          [_vm._v("Detalls localizació incident:")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.cartes_trucades.detall_localitzacio,
+              expression: "cartes_trucades.detall_localitzacio",
+            },
+          ],
+          attrs: {
+            form: "carta_trucada",
+            name: "detall_localitzacio",
+            id: "detall_localitzacio",
+            cols: "200",
+            rows: "4",
+            placeholder: "Detall localització",
+          },
+          domProps: { value: _vm.cartes_trucades.detall_localitzacio },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.cartes_trucades,
+                "detall_localitzacio",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
       _vm._v(" "),
-      _vm._m(6),
+      _c("div", { staticClass: "input-group mb-2" }, [
+        _c(
+          "label",
+          {
+            staticClass: "form-select-label",
+            attrs: { for: "altres_ref_localitzacio" },
+          },
+          [_vm._v("Altres referencies localizació incident:")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.cartes_trucades.altres_ref_localitzacio,
+              expression: "cartes_trucades.altres_ref_localitzacio",
+            },
+          ],
+          attrs: {
+            form: "carta_trucada",
+            name: "altres_ref_localitzacio",
+            id: "altres_ref_localitzacio",
+            cols: "200",
+            rows: "4",
+            placeholder: "Altres referencies localització",
+          },
+          domProps: { value: _vm.cartes_trucades.altres_ref_localitzacio },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.cartes_trucades,
+                "altres_ref_localitzacio",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
       _vm._v(" "),
-      _vm._m(7),
+      _c("div", { staticClass: "input-group mb-2" }, [
+        _c(
+          "label",
+          { staticClass: "form-select-label", attrs: { for: "nota_comuna" } },
+          [_vm._v("Nota comuna:")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.cartes_trucades.nota_comuna,
+              expression: "cartes_trucades.nota_comuna",
+            },
+          ],
+          attrs: {
+            form: "carta_trucada",
+            name: "nota_comuna",
+            id: "nota_comuna",
+            cols: "200",
+            rows: "4",
+            placeholder: "Nota Comuna",
+          },
+          domProps: { value: _vm.cartes_trucades.nota_comuna },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.cartes_trucades, "nota_comuna", $event.target.value)
+            },
+          },
+        }),
+      ]),
       _vm._v(" "),
       _c("input", {
         attrs: { type: "hidden", name: "userid", id: "userid" },
@@ -28549,224 +29088,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4" }, [
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "nom_trucada" } },
-        [_vm._v("Nom trucant:")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "text",
-          id: "nom_trucada",
-          name: "nom_trucada",
-          placeholder: "Nom trucada",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4" }, [
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "telefon" } },
-        [_vm._v("Telefon:")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: {
-          type: "tel",
-          id: "telefon",
-          name: "telefon",
-          placeholder: "Telefon",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-2" }, [
-      _c("div", { staticClass: "col-6" }, [
-        _c(
-          "label",
-          {
-            staticClass: "form-select-label",
-            attrs: { for: "procedencia_trucada" },
-          },
-          [_vm._v("Procedencia trucada:")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control me-1 col-6",
-          attrs: {
-            type: "text",
-            id: "procedencia_trucada",
-            name: "procedencia_trucada",
-            placeholder: "Procedencia trucada",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6" }, [
-        _c(
-          "label",
-          {
-            staticClass: "form-select-label",
-            attrs: { for: "origen_trucada" },
-          },
-          [_vm._v("Origen trucada:")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control col-6",
-          attrs: {
-            type: "text",
-            id: "origen_trucada",
-            name: "origen_trucada",
-            placeholder: "Origen trucada",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-check form-switch mb-2" }, [
-      _c("input", {
-        staticClass: "form-check-input",
-        attrs: {
-          type: "checkbox",
-          role: "switch",
-          name: "fora_catalunya",
-          value: "1",
-          id: "fora_catalunya",
-        },
-      }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-check-label", attrs: { for: "fora_catalunya" } },
-        [_vm._v("Fora de Catalunya?")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-2" }, [
-      _c(
-        "label",
-        {
-          staticClass: "form-select-label",
-          attrs: { for: "descripcio_localitzacio" },
-        },
-        [_vm._v("Descripció localizació incident:")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        attrs: {
-          form: "carta_trucada",
-          name: "descripcio_localitzacio",
-          id: "descripcio_localitzacio",
-          cols: "200",
-          rows: "4",
-          placeholder: "Descripcio localització",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-2" }, [
-      _c(
-        "label",
-        {
-          staticClass: "form-select-label",
-          attrs: { for: "detall_localitzacio" },
-        },
-        [_vm._v("Detalls localizació incident:")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        attrs: {
-          form: "carta_trucada",
-          name: "detall_localitzacio",
-          id: "detall_localitzacio",
-          cols: "200",
-          rows: "4",
-          placeholder: "Detall localització",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-2" }, [
-      _c(
-        "label",
-        {
-          staticClass: "form-select-label",
-          attrs: { for: "altres_ref_localitzacio" },
-        },
-        [_vm._v("Altres referencies localizació incident:")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        attrs: {
-          form: "carta_trucada",
-          name: "altres_ref_localitzacio",
-          id: "altres_ref_localitzacio",
-          cols: "200",
-          rows: "4",
-          placeholder: "Altres referencies localització",
-        },
-      }),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-group mb-2" }, [
-      _c(
-        "label",
-        { staticClass: "form-select-label", attrs: { for: "nota_comuna" } },
-        [_vm._v("Nota comuna:")]
-      ),
-      _vm._v(" "),
-      _c("textarea", {
-        attrs: {
-          form: "carta_trucada",
-          name: "nota_comuna",
-          id: "nota_comuna",
-          cols: "200",
-          rows: "4",
-          placeholder: "Nota Comuna",
-        },
-      }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
