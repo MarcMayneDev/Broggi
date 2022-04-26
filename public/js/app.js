@@ -5473,6 +5473,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['date', 'provincies', 'comarques', 'municipis', 'tipus_localitzacions', 'incidents', 'user_id'],
   data: function data() {
@@ -5526,6 +5528,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     clearTime: function clearTime() {
       this.isRunning = !this.isRunning;
+    },
+    submit: function submit() {
+      axios.post();
     } // setContador() {
     //     if (this.seconds) {
     //         console.log("pasa por here");
@@ -28281,249 +28286,267 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container cartesTrucades" }, [
-    _c("div", { staticClass: "input-group mt-3 mb-3 d-flex" }, [
-      _c("div", { staticClass: "col-3" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "datetime-local", id: "data_hora", name: "data_hora" },
-          domProps: { value: _vm.date },
-        }),
+  return _c("form", { on: { submit: _vm.submit } }, [
+    _c("div", { staticClass: "container cartesTrucades" }, [
+      _c("div", { staticClass: "input-group mt-3 mb-3 d-flex" }, [
+        _c("div", { staticClass: "col-3" }, [
+          _c("input", {
+            staticClass: "form-control",
+            attrs: {
+              type: "datetime-local",
+              id: "data_hora",
+              name: "data_hora",
+            },
+            domProps: { value: _vm.date },
+          }),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1",
+          },
+          [
+            _c("div", { attrs: { id: "contador" } }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.minutes + ":" + _vm.seconds) +
+                  "\n                "
+              ),
+            ]),
+          ]
+        ),
       ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-2" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "municipis_id_trucada" },
+            },
+            [_vm._v("Municipi trucant:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select",
+              attrs: {
+                id: "municipis_id_trucada",
+                name: "municipis_id_trucada",
+                "aria-label": "municipis_id_trucada",
+              },
+            },
+            _vm._l(_vm.municipis, function (municipi) {
+              return _c(
+                "option",
+                {
+                  attrs: { "data-comarca": municipi.comarques_id },
+                  domProps: { value: municipi.id },
+                },
+                [_vm._v(_vm._s(municipi.nom))]
+              )
+            }),
+            0
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "provincies_id" },
+            },
+            [_vm._v("Provincia emergencia:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select me-1",
+              attrs: {
+                id: "provincies_id",
+                name: "provincies_id",
+                "aria-label": "provincies_id",
+              },
+            },
+            _vm._l(_vm.provincies, function (provincia) {
+              return _c("option", { domProps: { value: provincia.id } }, [
+                _vm._v(_vm._s(provincia.nom)),
+              ])
+            }),
+            0
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "comarques_id" },
+            },
+            [_vm._v("Comarca emergencia:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select me-1",
+              attrs: {
+                id: "comarques_id",
+                name: "comarques_id",
+                "aria-label": "comarques_id",
+              },
+            },
+            _vm._l(_vm.comarques, function (comarca) {
+              return _c(
+                "option",
+                {
+                  attrs: { "data-provincia": comarca.provincies_id },
+                  domProps: { value: comarca.id },
+                },
+                [_vm._v(_vm._s(comarca.nom))]
+              )
+            }),
+            0
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "municipis_id" },
+            },
+            [_vm._v("Municipi emergencia:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select",
+              attrs: {
+                id: "municipis_id",
+                name: "municipis_id",
+                "aria-label": "municipis_id",
+              },
+            },
+            _vm._l(_vm.municipis, function (municipi) {
+              return _c(
+                "option",
+                {
+                  attrs: { "data-comarca": municipi.comarques_id },
+                  domProps: { value: municipi.id },
+                },
+                [_vm._v(_vm._s(municipi.nom))]
+              )
+            }),
+            0
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("div", { staticClass: "col-6" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "tipus_localitzacions" },
+            },
+            [_vm._v("Tipus emergencia:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select",
+              attrs: {
+                id: "tipus_localitzacions",
+                name: "tipus_localitzacions",
+                "aria-label": "tipus_localitzacions",
+              },
+            },
+            _vm._l(_vm.tipus_localitzacions, function (tipus_localitzacio) {
+              return _c(
+                "option",
+                { domProps: { value: tipus_localitzacio.id } },
+                [_vm._v(_vm._s(tipus_localitzacio.tipus))]
+              )
+            }),
+            0
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-6" }, [
+          _c(
+            "label",
+            {
+              staticClass: "form-select-label",
+              attrs: { for: "incidents_id" },
+            },
+            [_vm._v("Tipus incident:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              staticClass: "form-select ms-1",
+              attrs: {
+                id: "incidents_id",
+                name: "incidents_id",
+                "aria-label": "incidents_id",
+              },
+            },
+            _vm._l(_vm.incidents, function (incident) {
+              return _c("option", { domProps: { value: incident.id } }, [
+                _vm._v(_vm._s(incident.descripcio)),
+              ])
+            }),
+            0
+          ),
+        ]),
+      ]),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm._m(6),
+      _vm._v(" "),
+      _vm._m(7),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "userid", id: "userid" },
+        domProps: { value: _vm.user_id },
+      }),
       _vm._v(" "),
       _c(
-        "div",
+        "button",
         {
-          staticClass:
-            "bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1",
+          staticClass: "btn btn-success btn-sm",
+          attrs: { type: "submit", id: "enviar" },
+          on: { click: [_vm.toggleTimer, _vm.createCartaTrucada] },
         },
-        [
-          _c("div", { attrs: { id: "contador" } }, [
-            _vm._v(
-              "\n                " +
-                _vm._s(_vm.minutes + ":" + _vm.seconds) +
-                "\n            "
-            ),
-          ]),
-        ]
+        [_vm._v("Enviar")]
       ),
     ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "input-group mb-2" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
-        _c(
-          "label",
-          {
-            staticClass: "form-select-label",
-            attrs: { for: "municipis_id_trucada" },
-          },
-          [_vm._v("Municipi trucant:")]
-        ),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: {
-              id: "municipis_id_trucada",
-              name: "municipis_id_trucada",
-              "aria-label": "municipis_id_trucada",
-            },
-          },
-          _vm._l(_vm.municipis, function (municipi) {
-            return _c(
-              "option",
-              {
-                attrs: { "data-comarca": municipi.comarques_id },
-                domProps: { value: municipi.id },
-              },
-              [_vm._v(_vm._s(municipi.nom))]
-            )
-          }),
-          0
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _vm._m(3),
-    _vm._v(" "),
-    _c("div", { staticClass: "input-group mb-3" }, [
-      _c("div", { staticClass: "col-4" }, [
-        _c(
-          "label",
-          { staticClass: "form-select-label", attrs: { for: "provincies_id" } },
-          [_vm._v("Provincia emergencia:")]
-        ),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select me-1",
-            attrs: {
-              id: "provincies_id",
-              name: "provincies_id",
-              "aria-label": "provincies_id",
-            },
-          },
-          _vm._l(_vm.provincies, function (provincia) {
-            return _c("option", { domProps: { value: provincia.id } }, [
-              _vm._v(_vm._s(provincia.nom)),
-            ])
-          }),
-          0
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
-        _c(
-          "label",
-          { staticClass: "form-select-label", attrs: { for: "comarques_id" } },
-          [_vm._v("Comarca emergencia:")]
-        ),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select me-1",
-            attrs: {
-              id: "comarques_id",
-              name: "comarques_id",
-              "aria-label": "comarques_id",
-            },
-          },
-          _vm._l(_vm.comarques, function (comarca) {
-            return _c(
-              "option",
-              {
-                attrs: { "data-provincia": comarca.provincies_id },
-                domProps: { value: comarca.id },
-              },
-              [_vm._v(_vm._s(comarca.nom))]
-            )
-          }),
-          0
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4" }, [
-        _c(
-          "label",
-          { staticClass: "form-select-label", attrs: { for: "municipis_id" } },
-          [_vm._v("Municipi emergencia:")]
-        ),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: {
-              id: "municipis_id",
-              name: "municipis_id",
-              "aria-label": "municipis_id",
-            },
-          },
-          _vm._l(_vm.municipis, function (municipi) {
-            return _c(
-              "option",
-              {
-                attrs: { "data-comarca": municipi.comarques_id },
-                domProps: { value: municipi.id },
-              },
-              [_vm._v(_vm._s(municipi.nom))]
-            )
-          }),
-          0
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "input-group mb-3" }, [
-      _c("div", { staticClass: "col-6" }, [
-        _c(
-          "label",
-          {
-            staticClass: "form-select-label",
-            attrs: { for: "tipus_localitzacions" },
-          },
-          [_vm._v("Tipus emergencia:")]
-        ),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select",
-            attrs: {
-              id: "tipus_localitzacions",
-              name: "tipus_localitzacions",
-              "aria-label": "tipus_localitzacions",
-            },
-          },
-          _vm._l(_vm.tipus_localitzacions, function (tipus_localitzacio) {
-            return _c(
-              "option",
-              { domProps: { value: tipus_localitzacio.id } },
-              [_vm._v(_vm._s(tipus_localitzacio.tipus))]
-            )
-          }),
-          0
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6" }, [
-        _c(
-          "label",
-          { staticClass: "form-select-label", attrs: { for: "incidents_id" } },
-          [_vm._v("Tipus incident:")]
-        ),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-select ms-1",
-            attrs: {
-              id: "incidents_id",
-              name: "incidents_id",
-              "aria-label": "incidents_id",
-            },
-          },
-          _vm._l(_vm.incidents, function (incident) {
-            return _c("option", { domProps: { value: incident.id } }, [
-              _vm._v(_vm._s(incident.descripcio)),
-            ])
-          }),
-          0
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _vm._m(4),
-    _vm._v(" "),
-    _vm._m(5),
-    _vm._v(" "),
-    _vm._m(6),
-    _vm._v(" "),
-    _vm._m(7),
-    _vm._v(" "),
-    _c("input", {
-      attrs: { type: "hidden", name: "userid", id: "userid" },
-      domProps: { value: _vm.user_id },
-    }),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-success btn-sm",
-        attrs: { type: "submit", id: "enviar" },
-        on: { click: [_vm.toggleTimer, _vm.createCartaTrucada] },
-      },
-      [_vm._v("Enviar")]
-    ),
   ])
 }
 var staticRenderFns = [
