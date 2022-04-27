@@ -4,11 +4,11 @@
             <!-- Data -->
             <div class="input-group mt-3 mb-3 d-flex">
                 <div class="col-3">
-                    <input type="datetime-local" class="form-control" id="data_hora" name="data_hora" :value="date">
+                    <input type="datetime-local" class="form-control" id="data_hora" name="data_hora" v-model="cartes_trucades.data_hora">
                 </div>
                 <!-- Timer -->
                 <div class="bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1">
-                    <div class="" id="contador">
+                    <div class="" id="contador" v-model="cartes_trucades.provincies_id">
                         {{ minutes + ":" + seconds}}
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     nom_trucada: '',
                     usuaris_id: '',
                     nota_comuna: '',
-                    fora_catalunya: '',
+                    fora_catalunya: 'false',
                     provincies_id: '',
                     municipis_id: '',
                     tipus_localitzacions_id: '',
@@ -130,8 +130,8 @@
                     incidents_id: ''
                 },
 
-                seconds: 0,
-                minutes: 0,
+                seconds: '00',
+                minutes: '00',
                 time: 0,
                 isRunning: false,
                 interval: null,

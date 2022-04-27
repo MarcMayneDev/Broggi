@@ -5480,7 +5480,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cartes_trucades: {
-        temps_trucada: '',
+        temps_trucada: this.time,
         data_hora: '',
         telefon: '',
         procedencia_trucada: '',
@@ -5488,7 +5488,7 @@ __webpack_require__.r(__webpack_exports__);
         nom_trucada: '',
         usuaris_id: '',
         nota_comuna: '',
-        fora_catalunya: '',
+        fora_catalunya: 'false',
         provincies_id: '',
         municipis_id: '',
         tipus_localitzacions_id: '',
@@ -5498,8 +5498,8 @@ __webpack_require__.r(__webpack_exports__);
         expedients_id: '',
         incidents_id: ''
       },
-      seconds: 0,
-      minutes: 0,
+      seconds: '00',
+      minutes: '00',
       time: 0,
       isRunning: false,
       interval: null
@@ -28311,13 +28311,29 @@ var render = function () {
       _c("div", { staticClass: "input-group mt-3 mb-3 d-flex" }, [
         _c("div", { staticClass: "col-3" }, [
           _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.cartes_trucades.data_hora,
+                expression: "cartes_trucades.data_hora",
+              },
+            ],
             staticClass: "form-control",
             attrs: {
               type: "datetime-local",
               id: "data_hora",
               name: "data_hora",
             },
-            domProps: { value: _vm.date },
+            domProps: { value: _vm.cartes_trucades.data_hora },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.cartes_trucades, "data_hora", $event.target.value)
+              },
+            },
           }),
         ]),
         _vm._v(" "),
@@ -28328,13 +28344,26 @@ var render = function () {
               "bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1",
           },
           [
-            _c("div", { attrs: { id: "contador" } }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.minutes + ":" + _vm.seconds) +
-                  "\n                "
-              ),
-            ]),
+            _c(
+              "div",
+              {
+                attrs: { id: "contador" },
+                model: {
+                  value: _vm.cartes_trucades.provincies_id,
+                  callback: function ($$v) {
+                    _vm.$set(_vm.cartes_trucades, "provincies_id", $$v)
+                  },
+                  expression: "cartes_trucades.provincies_id",
+                },
+              },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.minutes + ":" + _vm.seconds) +
+                    "\n                "
+                ),
+              ]
+            ),
           ]
         ),
       ]),

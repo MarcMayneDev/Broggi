@@ -54,7 +54,7 @@ Route::put('/usuari/{user}', [App\Http\Controllers\UserController::class, 'updat
 // Carta Trucada
 /* Route::get('/cartaTrucada', [App\Http\Controllers\CartesTrucadesController::class, 'index']); */
 Route::get('/cartaTrucada/create', [App\Http\Controllers\CartesTrucadesController::class, 'create']);
-/* Route::post('/cartaTrucada/create', [App\Http\Controllers\CartesTrucadesController::class, 'store']); */
+Route::post('/cartaTrucada/create', [App\Http\Controllers\CartesTrucadesController::class, 'store']);
 
 // Carta Trucada
 /* Route::get('/cartaTrucada', [App\Http\Controllers\CartesTrucadesController::class, 'index']); */
