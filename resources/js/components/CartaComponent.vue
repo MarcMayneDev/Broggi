@@ -122,12 +122,14 @@
                     fora_catalunya: 'false',
                     provincies_id: '',
                     municipis_id: '',
+                    municipis_id_trucada: '',
                     tipus_localitzacions_id: '',
                     descripcio_localitzacio: '',
                     detall_localitzacio: '',
                     altres_ref_localitzacio: '',
                     expedients_id: '',
-                    incidents_id: ''
+                    incidents_id: '',
+                    codi_trucada: 'codi_trucada'
                 },
 
                 seconds: '00',
@@ -177,6 +179,8 @@
             },
             submit() {
                 let me = this;
+                cartes_trucades.usuaris_id = user_id;
+                cartes_trucades.temps_trucada = time;
                 axios
                     .post('/cartaTrucada/create', me.cartes_trucades)
                     .then(function(response){

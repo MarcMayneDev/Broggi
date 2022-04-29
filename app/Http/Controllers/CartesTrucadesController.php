@@ -77,6 +77,7 @@ class CartesTrucadesController extends Controller
     public function store(Request $request)
     {
         // Dades Personals
+
         $dades_personals = new Dades_personals();
         $dades_personals->telefon = $request->input('telefon');
 

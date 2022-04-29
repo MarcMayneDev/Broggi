@@ -5480,7 +5480,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cartes_trucades: {
-        temps_trucada: this.time,
+        temps_trucada: '',
         data_hora: '',
         telefon: '',
         procedencia_trucada: '',
@@ -5491,12 +5491,14 @@ __webpack_require__.r(__webpack_exports__);
         fora_catalunya: 'false',
         provincies_id: '',
         municipis_id: '',
+        municipis_id_trucada: '',
         tipus_localitzacions_id: '',
         descripcio_localitzacio: '',
         detall_localitzacio: '',
         altres_ref_localitzacio: '',
         expedients_id: '',
-        incidents_id: ''
+        incidents_id: '',
+        codi_trucada: 'codi_trucada'
       },
       seconds: '00',
       minutes: '00',
@@ -5550,6 +5552,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     submit: function submit() {
       var me = this;
+      cartes_trucades.usuaris_id = user_id;
+      cartes_trucades.temps_trucada = time;
       axios.post('/cartaTrucada/create', me.cartes_trucades).then(function (response) {});
     } // setContador() {
     //     if (this.seconds) {
