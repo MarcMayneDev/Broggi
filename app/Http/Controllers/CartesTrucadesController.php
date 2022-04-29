@@ -77,7 +77,6 @@ class CartesTrucadesController extends Controller
     public function store(Request $request)
     {
         // Dades Personals
-
         $dades_personals = new Dades_personals();
         $dades_personals->telefon = $request->input('telefon');
 
@@ -90,24 +89,24 @@ class CartesTrucadesController extends Controller
 
         //Carta Trucada
         $cartes_trucades = new Cartes_trucades();
-        $cartes_trucades->temps_trucada = $request->input('time');
+        $cartes_trucades->temps_trucada = $request->input('temps_trucada');
         $cartes_trucades->data_hora = $request->input('data_hora');
         $cartes_trucades->telefon = $request->input('telefon');
         $cartes_trucades->procedencia_trucada = $request->input('procedencia_trucada');
         $cartes_trucades->origen_trucada = $request->input('origen_trucada');
         $cartes_trucades->nom_trucada = $request->input('nom_trucada');
-        $cartes_trucades->usuaris_id = $request->input('userid');
+        $cartes_trucades->usuaris_id = $request->input('usuaris_id');
         $cartes_trucades->nota_comuna = $request->input('nota_comuna');
 
         if($request->input('fora_catalunya')){
-            $cartes_trucades->fora_catalunya = $request->input('fora_catalunya');
+            $cartes_trucades->fora_catalunya = 1;
         } else{
-            $cartes_trucades->fora_catalunya = "0";
+            $cartes_trucades->fora_catalunya = 0;
             $cartes_trucades->provincies_id = $request->input('provincies_id');
             $cartes_trucades->municipis_id = $request->input('municipis_id');
         }
 
-        $cartes_trucades->tipus_localitzacions_id = $request->input('tipus_localitzacions');
+        $cartes_trucades->tipus_localitzacions_id = $request->input('tipus_localitzacions_id');
         $cartes_trucades->descripcio_localitzacio = $request->input('descripcio_localitzacio');
         $cartes_trucades->detall_localitzacio = $request->input('detall_localitzacio');
         $cartes_trucades->altres_ref_localitzacio = $request->input('altres_ref_localitzacio');

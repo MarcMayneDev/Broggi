@@ -5552,9 +5552,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     submit: function submit() {
       var me = this;
-      cartes_trucades.usuaris_id = user_id;
-      cartes_trucades.temps_trucada = time;
-      axios.post('/cartaTrucada/create', me.cartes_trucades).then(function (response) {});
+      me.cartes_trucades.usuaris_id = me.user_id;
+      me.cartes_trucades.temps_trucada = me.time;
+      axios.post('create', me.cartes_trucades).then(function (response) {
+        console.log('response');
+        console.log(response);
+      })["catch"](function (error) {
+        console.log('error');
+        console.log(error.response.data);
+        console.log(error.response.error);
+      });
     } // setContador() {
     //     if (this.seconds) {
     //         console.log("pasa por here");
@@ -28353,11 +28360,11 @@ var render = function () {
               {
                 attrs: { id: "contador" },
                 model: {
-                  value: _vm.cartes_trucades.provincies_id,
+                  value: _vm.cartes_trucades.time,
                   callback: function ($$v) {
-                    _vm.$set(_vm.cartes_trucades, "provincies_id", $$v)
+                    _vm.$set(_vm.cartes_trucades, "time", $$v)
                   },
-                  expression: "cartes_trucades.provincies_id",
+                  expression: "cartes_trucades.time",
                 },
               },
               [
@@ -29113,8 +29120,12 @@ var render = function () {
         "button",
         {
           staticClass: "btn btn-success btn-sm",
-          attrs: { type: "submit", id: "enviar" },
-          on: { click: [_vm.toggleTimer, _vm.createCartaTrucada] },
+          attrs: { type: "button", id: "enviar" },
+          on: {
+            click: function ($event) {
+              return _vm.submit()
+            },
+          },
         },
         [_vm._v("Enviar")]
       ),

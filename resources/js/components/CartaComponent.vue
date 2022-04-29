@@ -8,7 +8,7 @@
                 </div>
                 <!-- Timer -->
                 <div class="bg-gradient-4 text-dark shadow p-1 text-center ms-auto col-1">
-                    <div class="" id="contador" v-model="cartes_trucades.provincies_id">
+                    <div class="" id="contador" v-model="cartes_trucades.time">
                         {{ minutes + ":" + seconds}}
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                     <textarea form="carta_trucada" name="nota_comuna" id="nota_comuna" cols="200" rows="4" placeholder="Nota Comuna" v-model="cartes_trucades.nota_comuna"></textarea>
                 </div>
             <input type="hidden" name="userid" id="userid" :value="user_id">
-            <button type="submit" id="enviar" class="btn btn-success btn-sm" @click="toggleTimer" v-on:click="createCartaTrucada">Enviar</button>
+            <button type="button" id="enviar" class="btn btn-success btn-sm" @click="submit()">Enviar</button>
         </div>
     </form>
 </template>
@@ -179,13 +179,18 @@
             },
             submit() {
                 let me = this;
-                cartes_trucades.usuaris_id = user_id;
-                cartes_trucades.temps_trucada = time;
+                me.cartes_trucades.usuaris_id = me.user_id;
+                me.cartes_trucades.temps_trucada = me.time;
                 axios
-                    .post('/cartaTrucada/create', me.cartes_trucades)
+                    .post('create', me.cartes_trucades)
                     .then(function(response){
-
-                })
+                        console.log('response');
+                        console.log(response);
+                    }).catch(function(error){
+                        console.log('error');
+                        console.log(error.response.data);
+                        console.log(error.response.error);
+                    })
             }
             // setContador() {
             //     if (this.seconds) {
